@@ -7,10 +7,10 @@ import recipeShiro from "@/assets/recipe-shiro.jpg";
 import recipeTibs from "@/assets/recipe-tibs.jpg";
 
 const trendingRecipes = [
-  { title: "Doro Wot", image: recipeDoro, time: "2h", difficulty: "Medium" as const, rating: 4.9, category: "Traditional" },
-  { title: "Kitfo", image: recipeKitfo, time: "30m", difficulty: "Medium" as const, rating: 4.8, category: "Chef's Special" },
-  { title: "Shiro Wot", image: recipeShiro, time: "45m", difficulty: "Easy" as const, rating: 4.7, category: "Vegan" },
-  { title: "Derek Tibs", image: recipeTibs, time: "35m", difficulty: "Easy" as const, rating: 4.6, category: "Quick Meals" },
+  { title: "Doro Wot", image: recipeDoro, time: "2h", difficulty: "Medium" as const, rating: 4.9, category: "Traditional", slug: "doro-wot" },
+  { title: "Kitfo", image: recipeKitfo, time: "30m", difficulty: "Medium" as const, rating: 4.8, category: "Chef's Special", slug: "kitfo" },
+  { title: "Shiro Wot", image: recipeShiro, time: "45m", difficulty: "Easy" as const, rating: 4.7, category: "Vegan", slug: "shiro-wot" },
+  { title: "Derek Tibs", image: recipeTibs, time: "35m", difficulty: "Easy" as const, rating: 4.6, category: "Quick Meals", slug: "derek-tibs" },
 ];
 
 export function TrendingSection() {
@@ -24,7 +24,7 @@ export function TrendingSection() {
           className="flex items-center gap-3 mb-3"
         >
           <TrendingUp className="h-6 w-6 text-primary" />
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Trending Now</span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider font-body">Trending Now</span>
         </motion.div>
 
         <motion.h2
