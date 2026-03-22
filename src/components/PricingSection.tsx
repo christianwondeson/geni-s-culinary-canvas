@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 const plans = [
   {
     name: "Free",
-    price: "$0",
-    period: "forever",
+    price: "ብር 0",
+    period: "ለዘላለም",
     description: "Explore the basics",
     features: [
       "Browse 50+ free recipes",
@@ -19,7 +19,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "$9",
+    price: "ብር 450",
     period: "/month",
     description: "Full chef experience",
     features: [
