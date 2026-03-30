@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const categories = [
   {
