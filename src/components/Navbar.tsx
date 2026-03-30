@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search, Heart, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -32,9 +33,9 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
-        <a href="#home" className="font-display text-2xl font-bold text-foreground">
+        <Link to="/" className="font-display text-2xl font-bold text-foreground">
           Geni's <span className="text-primary">Recipe</span>
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
@@ -57,9 +58,11 @@ export function Navbar() {
           <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary">
             <Heart className="h-5 w-5" />
           </Button>
-          <Button size="sm" className="rounded-full px-6">
-            <User className="h-4 w-4 mr-2" /> Sign In
-          </Button>
+          <Link to="/auth">
+            <Button size="sm" className="rounded-full px-6">
+              <User className="h-4 w-4 mr-2" /> Sign In
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -93,9 +96,11 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <Button size="sm" className="rounded-full mt-2">
-                <User className="h-4 w-4 mr-2" /> Sign In
-              </Button>
+              <Link to="/auth" onClick={() => setMobileOpen(false)}>
+                <Button size="sm" className="rounded-full mt-2 w-full">
+                  <User className="h-4 w-4 mr-2" /> Sign In
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}

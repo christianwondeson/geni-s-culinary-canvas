@@ -16,10 +16,10 @@ const exploreLinks = [
 ];
 
 const supportLinks = [
-  { label: "Help Center", href: "#" },
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-  { label: "FAQ", href: "#" },
+  { label: "Help Center", href: "/help" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "FAQ", href: "/help" },
 ];
 
 export function Footer() {
@@ -46,21 +46,12 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    {link.href.startsWith("/") ? (
-                      <Link
-                        to={link.href}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors font-body"
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors font-body"
-                      >
-                        {link.label}
-                      </a>
-                    )}
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors font-body"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

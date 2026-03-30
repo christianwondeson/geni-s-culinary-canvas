@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, Crown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
@@ -15,6 +16,7 @@ const plans = [
       "Community access",
     ],
     cta: "Get Started",
+    ctaLink: "/subscribe?plan=free",
     featured: false,
   },
   {
@@ -31,6 +33,7 @@ const plans = [
       "Priority support",
     ],
     cta: "Start Free Trial",
+    ctaLink: "/subscribe?plan=premium",
     featured: true,
   },
 ];
@@ -105,16 +108,18 @@ export function PricingSection() {
                 ))}
               </ul>
 
-              <Button
-                className={`w-full rounded-2xl h-12 font-semibold ${
-                  plan.featured
-                    ? "bg-spice-gold text-accent-foreground hover:bg-spice-gold/90"
-                    : ""
-                }`}
-                variant={plan.featured ? "default" : "outline"}
-              >
-                {plan.cta}
-              </Button>
+              <Link to={plan.ctaLink}>
+                <Button
+                  className={`w-full rounded-2xl h-12 font-semibold ${
+                    plan.featured
+                      ? "bg-spice-gold text-accent-foreground hover:bg-spice-gold/90"
+                      : ""
+                  }`}
+                  variant={plan.featured ? "default" : "outline"}
+                >
+                  {plan.cta}
+                </Button>
+              </Link>
             </motion.div>
           ))}
         </div>
