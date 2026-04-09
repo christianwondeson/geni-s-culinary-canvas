@@ -1,20 +1,27 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, Heart, User } from "lucide-react";
+import { Menu, X, Search, Heart, User, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Recipes", href: "#recipes" },
-  { label: "Traditional", href: "#traditional" },
-  { label: "Chef's Picks", href: "#chefs-picks" },
-  { label: "Pricing", href: "#pricing" },
-];
+const t = {
+  en: { home: "Home", recipes: "Recipes", traditional: "Traditional", chefsPicks: "Chef's Picks", pricing: "Pricing", signIn: "Sign In" },
+  am: { home: "ዋና ገጽ", recipes: "ምግቦች", traditional: "ባህላዊ", chefsPicks: "የሼፍ ምርጫ", pricing: "ዋጋ", signIn: "ግባ" },
+};
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [lang, setLang] = useState<"en" | "am">("en");
+  const l = t[lang];
+
+  const navLinks = [
+    { label: l.home, href: "#home" },
+    { label: l.recipes, href: "#recipes" },
+    { label: l.traditional, href: "#traditional" },
+    { label: l.chefsPicks, href: "#chefs-picks" },
+    { label: l.pricing, href: "#pricing" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,9 +34,7 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass py-3 shadow-lg"
-          : "bg-transparent py-5"
+        scrolled ? "glass py-3 shadow-lg" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
@@ -37,21 +42,18 @@ export function Navbar() {
           Geni's <span className="text-primary">Recipe</span>
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
+            <a key={link.label} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300">
               {link.label}
             </a>
           ))}
         </div>
 
-        {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
+          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" onClick={() => setLang(lang === "en" ? "am" : "en")}>
+            <Globe className="h-5 w-5" />
+          </Button>
           <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary">
             <Search className="h-5 w-5" />
           </Button>
@@ -60,23 +62,16 @@ export function Navbar() {
           </Button>
           <Link to="/auth">
             <Button size="sm" className="rounded-full px-6">
-              <User className="h-4 w-4 mr-2" /> Sign In
+              <User className="h-4 w-4 mr-2" /> {l.signIn}
             </Button>
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
+        <Button variant="ghost" size="icon" className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </Button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -87,18 +82,16 @@ export function Navbar() {
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-foreground font-medium hover:text-primary transition-colors"
-                >
+                <a key={link.label} href={link.href} onClick={() => setMobileOpen(false)} className="text-foreground font-medium hover:text-primary transition-colors">
                   {link.label}
                 </a>
               ))}
+              <button onClick={() => setLang(lang === "en" ? "am" : "en")} className="text-sm text-primary font-body flex items-center gap-1">
+                <Globe className="h-4 w-4" /> {lang === "en" ? "አማርኛ" : "English"}
+              </button>
               <Link to="/auth" onClick={() => setMobileOpen(false)}>
                 <Button size="sm" className="rounded-full mt-2 w-full">
-                  <User className="h-4 w-4 mr-2" /> Sign In
+                  <User className="h-4 w-4 mr-2" /> {l.signIn}
                 </Button>
               </Link>
             </div>
