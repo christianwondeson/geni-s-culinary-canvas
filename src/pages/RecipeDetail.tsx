@@ -15,6 +15,10 @@ import recipeShiro from "@/assets/recipe-shiro.jpg";
 import recipeTibs from "@/assets/recipe-tibs.jpg";
 import recipeBeyaynetu from "@/assets/recipe-beyaynetu.jpg";
 import recipeCoffee from "@/assets/recipe-coffee.jpg";
+import recipePasta from "@/assets/recipe-pasta-carbonara.jpg";
+import recipeBurger from "@/assets/recipe-burger.jpg";
+import recipeTeriyaki from "@/assets/recipe-teriyaki.jpg";
+import recipeTacos from "@/assets/recipe-tacos.jpg";
 
 const allRecipes: Record<string, {
   title: string; titleAm: string; image: string; time: string;
@@ -28,9 +32,9 @@ const allRecipes: Record<string, {
     title: "Doro Wot", titleAm: "ዶሮ ወጥ",
     image: recipeDoro, time: "2h 30m", difficulty: "Medium", rating: 4.9,
     category: "Traditional", servings: 6,
-    description: "A rich, spicy chicken stew slow-cooked with berbere spice, served on injera for special occasions. This iconic Ethiopian dish is the crown jewel of the cuisine and a must-learn for anyone interested in Ethiopian cooking.",
-    descriptionAm: "በበርበሬ ቅመም ቀስ ብሎ የተበሰለ ጣፋጭ የዶሮ ወጥ፣ በልዩ አጋጣሚዎች በእንጀራ ላይ ይቀርባል። ይህ ታዋቂ የኢትዮጵያ ምግብ የኩሽና ዘውድ ጌጥ ነው።",
-    videoUrl: "https://www.youtube.com/embed/oBiXCNlGk0k",
+    description: "A rich, spicy chicken stew slow-cooked with berbere spice, served on injera for special occasions.",
+    descriptionAm: "በበርበሬ ቅመም ቀስ ብሎ የተበሰለ ጣፋጭ የዶሮ ወጥ፣ በልዩ አጋጣሚዎች በእንጀራ ላይ ይቀርባል።",
+    videoUrl: "https://www.youtube.com/embed/yFlaRGKaBgo?rel=0",
     tips: [
       "Use a heavy-bottomed pot (preferably cast iron) for even heat distribution",
       "Never add oil or water when caramelizing onions — they release their own moisture",
@@ -48,39 +52,39 @@ const allRecipes: Record<string, {
     ingredients: [
       { name: "Whole chicken, cut into 12 pieces", nameAm: "ሙሉ ዶሮ፣ 12 ቁርጥ", amount: "1 whole (about 1.5kg)", note: "Remove skin for a leaner stew. Wash with lemon juice and water.", noteAm: "ቆዳውን ለቀቅ ያድርጉ። በሎሚ ጭማቂ ይታጠቡ።" },
       { name: "Red onions, very finely diced", nameAm: "ቀይ ሽንኩርት፣ በጣም በጥሩ ተቆርጦ", amount: "6 large (about 1kg)", note: "The onions should be almost paste-like. Use a food processor if available.", noteAm: "ሽንኩርቱ ማለት ይቻላል ፔስት መሆን አለበት።" },
-      { name: "Berbere spice mix", nameAm: "በርበሬ", amount: "4 tablespoons", note: "Adjust to taste. Start with 3 tbsp if you prefer less heat.", noteAm: "እንደ ፍላጎትዎ ያስተካክሉ። ያነሰ ሙቀት ከፈለጉ በ3 ማንኪያ ይጀምሩ።" },
-      { name: "Niter kibbeh (Ethiopian spiced butter)", nameAm: "ንጥር ቅቤ", amount: "½ cup (120ml)", note: "If unavailable, use regular butter with ½ tsp turmeric, cardamom, and fenugreek.", noteAm: "ከሌለ ቅቡት ከኩርኩም፣ ከሮማን እና ከአብሽ ጋር ይጠቀሙ።" },
-      { name: "Hard-boiled eggs", nameAm: "የተቀቀለ እንቁላል", amount: "6", note: "Boil for 10 minutes, peel carefully, and score with a fork in a crosshatch pattern.", noteAm: "ለ10 ደቂቃ ያፍሉ፣ በጥንቃቄ ይግፉ፣ በሹካ ይቧጥጡ።" },
-      { name: "Garlic, minced", nameAm: "ነጭ ሽንኩርት፣ የተፈጨ", amount: "6 cloves", note: "Fresh garlic gives the best flavor. Mince very finely." },
-      { name: "Fresh ginger, grated", nameAm: "ትኩስ ዝንጅብል፣ የተፈጨ", amount: "1 tablespoon", note: "Peel with a spoon for easy grating." },
-      { name: "Tomato paste", nameAm: "የቲማቲም ፔስት", amount: "2 tablespoons", note: "Adds depth and color to the sauce." },
-      { name: "Lemon juice (for washing chicken)", nameAm: "የሎሚ ጭማቂ", amount: "2 tablespoons" },
+      { name: "Berbere spice mix", nameAm: "በርበሬ", amount: "4 tablespoons", note: "Adjust to taste. Start with 3 tbsp if you prefer less heat.", noteAm: "እንደ ፍላጎትዎ ያስተካክሉ።" },
+      { name: "Niter kibbeh (Ethiopian spiced butter)", nameAm: "ንጥር ቅቤ", amount: "½ cup (120ml)", note: "If unavailable, use regular butter with ½ tsp turmeric, cardamom, and fenugreek." },
+      { name: "Hard-boiled eggs", nameAm: "የተቀቀለ እንቁላል", amount: "6", note: "Boil for 10 minutes, peel carefully, and score with a fork." },
+      { name: "Garlic, minced", nameAm: "ነጭ ሽንኩርት፣ የተፈጨ", amount: "6 cloves" },
+      { name: "Fresh ginger, grated", nameAm: "ትኩስ ዝንጅብል፣ የተፈጨ", amount: "1 tablespoon" },
+      { name: "Tomato paste", nameAm: "የቲማቲም ፔስት", amount: "2 tablespoons" },
+      { name: "Lemon juice", nameAm: "የሎሚ ጭማቂ", amount: "2 tablespoons" },
       { name: "Salt to taste", nameAm: "ጨው እንደ ፍላጎት", amount: "1-2 teaspoons" },
-      { name: "Water", nameAm: "ውሃ", amount: "½ cup", note: "Add only if the sauce becomes too thick." },
+      { name: "Water", nameAm: "ውሃ", amount: "½ cup" },
     ],
     steps: [
-      { instruction: "Wash the chicken pieces thoroughly with lemon juice and cold water. Pat dry with paper towels and set aside. This removes any gamey taste.", instructionAm: "ዶሮውን በሎሚ ጭማቂና ቀዝቃዛ ውሃ በደንብ ይታጠቡ። በወረቀት ያድርቁ።", tip: "Letting the chicken come to room temperature before cooking ensures even cooking.", tipAm: "ዶሮው ከማብሰልዎ በፊት የክፍል ሙቀት እንዲደርስ ማድረግ እኩል ማብሰልን ያረጋግጣል።" },
-      { instruction: "In a large, heavy pot over medium heat, add the finely diced onions WITHOUT any oil or butter. Stir constantly and cook until they release their moisture and turn deep golden brown. This is the foundation of the flavor.", instructionAm: "በትልቅ ከባድ ድስት ውስጥ በመካከለኛ እሳት ላይ ሽንኩርቱን ያለ ዘይት ወይም ቅቤ ጨምሩ። ያለማቋረጥ ያነሱ።", timer: 30, tip: "Don't rush this step! The onions should be very dark brown, almost caramelized. If they start to stick, reduce heat slightly.", tipAm: "ይህን ደረጃ አትቸኩሉ! ሽንኩርቱ በጣም ጥቁር ቡናማ መሆን አለበት።" },
-      { instruction: "Add the niter kibbeh (spiced butter) and let it melt completely. Stir in the minced garlic and grated ginger. Cook for 2 minutes until fragrant.", instructionAm: "ንጥር ቅቤ ጨምሩ ሙሉ በሙሉ ይቅለጥ። ነጭ ሽንኩርትና ዝንጅብል ጨምሩ። ለ2 ደቂቃ ያብስሉ።", timer: 5 },
-      { instruction: "Add the berbere spice and tomato paste. Stir well to combine and cook for 5 minutes, stirring frequently to prevent burning. The mixture should become a thick, fragrant paste.", instructionAm: "በርበሬና የቲማቲም ፔስት ጨምሩ። በደንብ ቀላቅሉ ለ5 ደቂቃ ያብስሉ።", timer: 5, tip: "If the mixture is too dry, add 2 tablespoons of water.", tipAm: "ድብልቁ በጣም ደረቅ ከሆነ 2 ማንኪያ ውሃ ጨምሩ።" },
-      { instruction: "Add the chicken pieces one by one, turning each piece to coat well with the sauce. Arrange in a single layer if possible. Cover the pot with a tight-fitting lid.", instructionAm: "የዶሮ ቁርጥራጮቹን አንድ በአንድ ጨምሩ። እያንዳንዱን ቁርጥራጭ በሶሱ ይቀቡ። ድስቱን በደንብ ይክደኑ።", timer: 5 },
-      { instruction: "Reduce heat to low and cook covered for 45 minutes. Do not open the lid during this time — the steam helps tenderize the chicken. Check occasionally to ensure nothing is burning.", instructionAm: "እሳቱን ወደ ዝቅተኛ ዝቅ ያድርጉ ለ45 ደቂቃ ድፍን ያብስሉ። በዚህ ጊዜ ውስጥ ክዳኑን አይክፈቱ።", timer: 45, tip: "If you smell burning, very briefly lift the lid and add a splash of water.", tipAm: "ሽታ ከተሰማ ትንሽ ውሃ ይጨምሩ።" },
-      { instruction: "Score the hard-boiled eggs in a crosshatch pattern using a fork. Gently add them to the stew, pushing them into the sauce. Simmer uncovered for 20 more minutes.", instructionAm: "በሹካ ተቀቅለው የተገፉ እንቁላሎቹን ይቧጥጡ። ቀስ ብለው ወደ ወጡ ያስገቡ። ያለ ክዳን ለ20 ደቂቃ ያፍሉ።", timer: 20 },
-      { instruction: "Taste and adjust seasoning with salt. Remove from heat and let rest for 10 minutes. Serve on a large injera platter, spooning sauce generously over the chicken and eggs.", instructionAm: "ጣዕሙን ይቅመሱ ጨው ያስተካክሉ። ከእሳት ያውጡ ለ10 ደቂቃ ያሳርፉ። በትልቅ እንጀራ ላይ ያቅርቡ።" },
+      { instruction: "Wash the chicken pieces thoroughly with lemon juice and cold water. Pat dry with paper towels and set aside.", instructionAm: "ዶሮውን በሎሚ ጭማቂና ቀዝቃዛ ውሃ በደንብ ይታጠቡ። በወረቀት ያድርቁ።", tip: "Let the chicken come to room temperature before cooking.", tipAm: "ዶሮው ከማብሰልዎ በፊት የክፍል ሙቀት እንዲደርስ ያድርጉ።" },
+      { instruction: "In a large, heavy pot over medium heat, add the finely diced onions WITHOUT any oil or butter. Stir constantly and cook until deep golden brown.", instructionAm: "በትልቅ ከባድ ድስት ውስጥ ሽንኩርቱን ያለ ዘይት ወይም ቅቤ ጨምሩ። ያለማቋረጥ ያነሱ።", timer: 30, tip: "Don't rush this step! The onions should be very dark brown.", tipAm: "ይህን ደረጃ አትቸኩሉ!" },
+      { instruction: "Add the niter kibbeh and let it melt. Stir in garlic and ginger. Cook for 2 minutes until fragrant.", instructionAm: "ንጥር ቅቤ ጨምሩ። ነጭ ሽንኩርትና ዝንጅብል ጨምሩ። ለ2 ደቂቃ ያብስሉ።", timer: 5 },
+      { instruction: "Add berbere and tomato paste. Stir well and cook for 5 minutes until thick and fragrant.", instructionAm: "በርበሬና የቲማቲም ፔስት ጨምሩ። ለ5 ደቂቃ ያብስሉ።", timer: 5 },
+      { instruction: "Add the chicken pieces one by one, coating each with sauce. Cover the pot.", instructionAm: "የዶሮ ቁርጥራጮቹን አንድ በአንድ ጨምሩ። ድስቱን ይክደኑ።", timer: 5 },
+      { instruction: "Reduce heat to low and cook covered for 45 minutes. Do not open the lid.", instructionAm: "እሳቱን ዝቅ ያድርጉ ለ45 ደቂቃ ድፍን ያብስሉ።", timer: 45 },
+      { instruction: "Score the eggs in a crosshatch pattern. Add to the stew. Simmer uncovered for 20 minutes.", instructionAm: "እንቁላሎቹን ይቧጥጡ። ወደ ወጡ ያስገቡ። ለ20 ደቂቃ ያፍሉ።", timer: 20 },
+      { instruction: "Season with salt. Let rest 10 minutes. Serve on injera.", instructionAm: "ጨው ያስተካክሉ። ለ10 ደቂቃ ያሳርፉ። በእንጀራ ላይ ያቅርቡ።" },
     ],
   },
   "kitfo": {
     title: "Kitfo", titleAm: "ክትፎ",
     image: recipeKitfo, time: "30m", difficulty: "Medium", rating: 4.8,
     category: "Chef's Special", servings: 4,
-    description: "Ethiopia's celebrated raw (or lightly cooked) beef delicacy, seasoned with mitmita spice and niter kibbeh. A dish of finesse — the quality of meat and freshness of spices make all the difference.",
-    descriptionAm: "በሚጥሚጣና ንጥር ቅቤ የተቀመመ ታዋቂ የኢትዮጵያ ጥሬ ስጋ ምግብ። የስጋ ጥራትና የቅመማ ቅመም ትኩስነት ልዩነቱን ይፈጥራል።",
-    videoUrl: "https://www.youtube.com/embed/n_JjAH0KUHI",
+    description: "Ethiopia's celebrated raw (or lightly cooked) beef delicacy, seasoned with mitmita spice and niter kibbeh.",
+    descriptionAm: "በሚጥሚጣና ንጥር ቅቤ የተቀመመ ታዋቂ የኢትዮጵያ ጥሬ ስጋ ምግብ።",
+    videoUrl: "https://www.youtube.com/embed/dQG-IasjsFo?rel=0",
     tips: [
       "Always use the freshest, highest-quality lean beef you can find",
-      "The beef should be minced by hand for the best texture — avoid pre-ground meat",
-      "Warm the butter gently — it should be warm, not hot, to keep the meat tender",
-      "For 'leb leb' (lightly cooked) version, toss the meat briefly in the warm butter",
+      "The beef should be minced by hand for the best texture",
+      "Warm the butter gently — it should be warm, not hot",
+      "For 'leb leb' (lightly cooked), toss the meat briefly in the warm butter",
       "Serve immediately — kitfo does not taste as good when reheated",
     ],
     tipsAm: [
@@ -91,181 +95,331 @@ const allRecipes: Record<string, {
       "ወዲያውኑ ያቅርቡ — ክትፎ ሲሞቅ ጣፋጭ አይሆንም",
     ],
     ingredients: [
-      { name: "Very lean beef (tenderloin or round)", nameAm: "በጣም ንጹህ ስጋ (ፊሌ)", amount: "500g", note: "Ask your butcher for the leanest cut. Trim ALL visible fat." },
-      { name: "Niter kibbeh (spiced clarified butter)", nameAm: "ንጥር ቅቤ", amount: "¼ cup (60ml)", note: "Must be freshly made or high quality for best results." },
-      { name: "Mitmita spice blend", nameAm: "ሚጥሚጣ", amount: "2 tablespoons", note: "A hot chili-based spice. Start with 1 tbsp if you're new to it — it's very spicy!" },
-      { name: "Fresh ayib (Ethiopian cottage cheese)", nameAm: "ትኩስ አይብ", amount: "1 cup", note: "If unavailable, use ricotta or fresh farmer's cheese as substitute." },
-      { name: "Gomen (collard greens), steamed", nameAm: "ጎመን (የተቀቀለ)", amount: "2 cups", note: "Steam until just tender, about 5-7 minutes. Season lightly with salt." },
-      { name: "Kocho or injera for serving", nameAm: "ቆጮ ወይም እንጀራ ለመቅረብ", amount: "as needed" },
-      { name: "Cardamom (optional)", nameAm: "ቀረፋ (አማራጭ)", amount: "¼ teaspoon" },
+      { name: "Very lean beef (tenderloin)", nameAm: "በጣም ንጹህ ስጋ (ፊሌ)", amount: "500g", note: "Ask your butcher for the leanest cut. Trim ALL visible fat." },
+      { name: "Niter kibbeh", nameAm: "ንጥር ቅቤ", amount: "¼ cup (60ml)" },
+      { name: "Mitmita spice blend", nameAm: "ሚጥሚጣ", amount: "2 tablespoons", note: "Very spicy! Start with 1 tbsp if you're new to it." },
+      { name: "Fresh ayib (Ethiopian cottage cheese)", nameAm: "ትኩስ አይብ", amount: "1 cup", note: "If unavailable, use ricotta." },
+      { name: "Gomen (collard greens), steamed", nameAm: "ጎመን (የተቀቀለ)", amount: "2 cups" },
+      { name: "Kocho or injera", nameAm: "ቆጮ ወይም እንጀራ", amount: "as needed" },
     ],
     steps: [
-      { instruction: "If your beef isn't already minced, use a very sharp knife to mince it extremely finely by hand. The meat should be almost paste-like. This is traditionally done with a special curved knife called a 'minchet'.", instructionAm: "ስጋው ካልተፈጨ በጣም ስለት ባለው ቢላ በእጅ በጣም በጥሩ ይፍጩ።", timer: 10, tip: "Chill the meat for 30 minutes before mincing — it's easier to cut when cold.", tipAm: "ከመፍጨትዎ በፊት ለ30 ደቂቃ ያቀዝቁ።" },
-      { instruction: "In a wide pan over LOW heat, gently warm the niter kibbeh until just melted and warm — not hot. You should be able to touch the pan without burning yourself.", instructionAm: "በሰፊ ምድጃ ላይ በዝቅተኛ እሳት ንጥር ቅቤውን ቀስ ብለው ያሙቁ።", timer: 3, tip: "If the butter starts sizzling, remove from heat and let it cool slightly.", tipAm: "ቅቤው መፍሰስ ከጀመረ ከእሳት ያውጡ።" },
-      { instruction: "Add the minced beef and mitmita spice to the warm butter. Using a fork, gently fold everything together until evenly combined. For 'leb leb' style, let it cook 30 seconds while stirring.", instructionAm: "የተፈጨውን ስጋና ሚጥሚጣ ወደ ሞቀው ቅቤ ጨምሩ። በሹካ ቀስ ብለው ያቀላቅሉ።", timer: 2 },
-      { instruction: "Arrange on a plate: mound the kitfo in the center, place fresh ayib on one side and steamed gomen on the other. Serve immediately with kocho or injera.", instructionAm: "በሳህን ላይ ያስቀምጡ: ክትፎውን በመሃል፣ ትኩስ አይብ በአንድ ጎን፣ ጎመን በሌላ ጎን። ከቆጮ ወይም እንጀራ ጋር ወዲያው ያቅርቡ።" },
+      { instruction: "Mince the beef extremely finely by hand with a sharp knife. It should be almost paste-like.", instructionAm: "ስጋውን በስለት ቢላ በእጅ በጣም በጥሩ ይፍጩ።", timer: 10, tip: "Chill the meat for 30 minutes before mincing." },
+      { instruction: "Gently warm the niter kibbeh over LOW heat until just melted and warm — not hot.", instructionAm: "ንጥር ቅቤውን በዝቅተኛ እሳት ቀስ ብለው ያሙቁ።", timer: 3 },
+      { instruction: "Add the minced beef and mitmita to the warm butter. Fold gently with a fork.", instructionAm: "ስጋና ሚጥሚጣ ወደ ሞቀው ቅቤ ጨምሩ። በሹካ ያቀላቅሉ።", timer: 2 },
+      { instruction: "Arrange on a plate: kitfo in the center, ayib on one side, gomen on the other. Serve immediately with injera.", instructionAm: "ክትፎውን በመሃል፣ አይብ በአንድ ጎን፣ ጎመን በሌላ ጎን ያቅርቡ።" },
     ],
   },
   "shiro-wot": {
     title: "Shiro Wot", titleAm: "ሽሮ ወጥ",
     image: recipeShiro, time: "45m", difficulty: "Easy", rating: 4.7,
     category: "Vegan", servings: 4,
-    description: "A smooth, comforting chickpea flour stew that is the most beloved everyday dish across Ethiopia. Perfect for fasting days and beginners — simple ingredients, amazing flavor.",
-    descriptionAm: "ለስላሳና ጣፋጭ የሽሮ ወጥ። በኢትዮጵያ ውስጥ በጣም ተወዳጅ የዕለት ተዕለት ምግብ ነው። ለጾም ቀናትና ለጀማሪዎች ፍጹም ነው።",
-    videoUrl: "https://www.youtube.com/embed/Lf63RcAz3UA",
+    description: "A smooth, comforting chickpea flour stew — the most beloved everyday dish across Ethiopia.",
+    descriptionAm: "ለስላሳና ጣፋጭ የሽሮ ወጥ። በኢትዮጵያ ውስጥ በጣም ተወዳጅ የዕለት ተዕለት ምግብ ነው።",
+    videoUrl: "https://www.youtube.com/embed/C0mPfcSgJP8?rel=0",
     tips: [
-      "The most important step is cooking the onions long enough — they provide all the flavor",
+      "The most important step is cooking the onions long enough",
       "Always add shiro powder gradually while stirring to prevent lumps",
-      "Keep stirring frequently while simmering — shiro can stick to the bottom and burn easily",
-      "The consistency should be like thick porridge — add water if too thick, cook longer if too thin",
-      "Taste and adjust salt at the end — shiro powder may already contain some salt",
+      "Keep stirring frequently — shiro can stick and burn easily",
+      "Consistency should be like thick porridge",
+      "Taste and adjust salt at the end",
     ],
     tipsAm: [
-      "በጣም አስፈላጊው ደረጃ ሽንኩርቱን በቂ ጊዜ ማብሰል ነው",
+      "ሽንኩርቱን በቂ ጊዜ ማብሰል በጣም አስፈላጊ ነው",
       "ሽሮውን ሁልጊዜ ቀስ በቀስ እየነቃነቁ ጨምሩ",
-      "ሲፈላ ያለማቋረጥ ያነሱ — ሽሮ ወደ ታች ተጣብቆ በቀላሉ ሊቃጠል ይችላል",
+      "ያለማቋረጥ ያነሱ — ሽሮ ሊቃጠል ይችላል",
       "ወፍራም ገንፎ መምሰል አለበት",
-      "ጨው በመጨረሻ ይቅመሱና ያስተካክሉ",
+      "ጨው በመጨረሻ ይቅመሱ",
     ],
     ingredients: [
-      { name: "Shiro powder (chickpea flour blend)", nameAm: "ሽሮ ዱቄት", amount: "1 cup (120g)", note: "Available at Ethiopian/Eritrean grocery stores. Contains ground chickpeas, garlic, and spices." },
-      { name: "Red onions, very finely diced", nameAm: "ቀይ ሽንኩርት፣ በጥሩ ተቆርጦ", amount: "3 large", note: "Dice as finely as possible — a food processor works great." },
-      { name: "Olive oil or vegetable oil", nameAm: "የወይራ ዘይት", amount: "¼ cup (60ml)", note: "For fasting days use oil; for non-fasting you can use niter kibbeh instead." },
+      { name: "Shiro powder", nameAm: "ሽሮ ዱቄት", amount: "1 cup (120g)", note: "Available at Ethiopian/Eritrean grocery stores." },
+      { name: "Red onions, finely diced", nameAm: "ቀይ ሽንኩርት", amount: "3 large" },
+      { name: "Olive oil", nameAm: "የወይራ ዘይት", amount: "¼ cup (60ml)" },
       { name: "Garlic, minced", nameAm: "ነጭ ሽንኩርት", amount: "4 cloves" },
-      { name: "Fresh tomato, finely chopped", nameAm: "ትኩስ ቲማቲም", amount: "2 medium", note: "Remove seeds for a smoother sauce." },
-      { name: "Berbere spice (optional)", nameAm: "በርበሬ (አማራጭ)", amount: "1 teaspoon", note: "Adds heat and color. Skip if you prefer mild." },
+      { name: "Fresh tomato, chopped", nameAm: "ትኩስ ቲማቲም", amount: "2 medium" },
       { name: "Water", nameAm: "ውሃ", amount: "3 cups (720ml)" },
       { name: "Salt", nameAm: "ጨው", amount: "to taste" },
-      { name: "Fresh jalapeño (optional)", nameAm: "ቃሪያ (አማራጭ)", amount: "1", note: "Slice and add at the end for extra heat." },
     ],
     steps: [
-      { instruction: "Heat oil in a medium pot over medium heat. Add the finely diced onions and cook, stirring occasionally, until they become very soft and deeply golden brown. This is the flavor base — don't rush it.", instructionAm: "ዘይቱን በመካከለኛ ድስት ውስጥ ያሙቁ። ሽንኩርቱን ጨምሩ በጣም እስኪለሰልስና ጥቁር ወርቃማ እስኪሆን ድረስ ያብስሉ።", timer: 15, tip: "If onions start to burn, add a splash of water and reduce heat.", tipAm: "ሽንኩርቱ ከተቃጠለ ትንሽ ውሃ ጨምሩ።" },
-      { instruction: "Add the minced garlic and chopped tomatoes. Cook until the tomatoes break down completely and the mixture becomes paste-like. Add berbere if using.", instructionAm: "ነጭ ሽንኩርትና ቲማቲም ጨምሩ። ቲማቲሙ ሙሉ በሙሉ እስኪፈርስ ድረስ ያብስሉ።", timer: 7 },
-      { instruction: "In a separate bowl, whisk the shiro powder with 1 cup of water until smooth with no lumps. Set aside.", instructionAm: "በተለየ ሳህን ውስጥ ሽሮውን ከ1 ኩባያ ውሃ ጋር ያቀላቅሉ። ወደ ጎን ያስቀምጡ።", timer: 2, tip: "Using a whisk or fork ensures no lumps form.", tipAm: "ሹካ ወይም ዊስክ መጠቀም ብቻ ይከላከላል።" },
-      { instruction: "Add the remaining 2 cups of water to the pot and bring to a gentle boil. Slowly pour in the shiro mixture while stirring continuously in one direction.", instructionAm: "የቀረውን 2 ኩባያ ውሃ ወደ ድስቱ ጨምሩ ቀስ ብሎ ይፍሉ። ሽሮውን ቀስ ብለው እያነሱ ያፍስሱ።", timer: 3 },
-      { instruction: "Reduce heat to low and simmer for 20 minutes, stirring frequently to prevent sticking. The shiro should thicken to a creamy, porridge-like consistency. Add water if too thick.", instructionAm: "እሳቱን ዝቅ ያድርጉ ለ20 ደቂቃ ያብስሉ። ያለማቋረጥ ያነሱ። ሽሮው ክሬማ የመሰለ ወፍራም መሆን አለበት።", timer: 20, tip: "The shiro will continue to thicken as it cools, so keep it slightly thinner than desired.", tipAm: "ሽሮው ሲቀዘቅዝ ይወፍራል ስለዚህ ትንሽ ቀጭን ያድርጉት።" },
-      { instruction: "Season with salt to taste. Serve hot, drizzled with a little oil on top, alongside fresh injera. Optionally garnish with sliced jalapeño.", instructionAm: "ጨው ይቅመሱ። ሞቅ ብሎ ከእንጀራ ጋር ያቅርቡ። ከፈለጉ ቃሪያ ይጨምሩ።" },
+      { instruction: "Heat oil in a pot. Cook onions until deeply golden brown.", instructionAm: "ዘይቱን ያሙቁ። ሽንኩርቱን ጥቁር ወርቃማ እስኪሆን ያብስሉ።", timer: 15 },
+      { instruction: "Add garlic and tomatoes. Cook until tomatoes break down.", instructionAm: "ነጭ ሽንኩርትና ቲማቲም ጨምሩ። ቲማቲሙ እስኪፈርስ ያብስሉ።", timer: 7 },
+      { instruction: "Whisk shiro powder with 1 cup water until smooth. Set aside.", instructionAm: "ሽሮውን ከ1 ኩባያ ውሃ ጋር ያቀላቅሉ።", timer: 2 },
+      { instruction: "Add remaining water to the pot. Slowly pour in shiro mixture while stirring.", instructionAm: "የቀረውን ውሃ ጨምሩ። ሽሮውን ቀስ ብለው እያነሱ ያፍስሱ።", timer: 3 },
+      { instruction: "Simmer on low for 20 minutes, stirring frequently. Serve with injera.", instructionAm: "ለ20 ደቂቃ ያብስሉ። ከእንጀራ ጋር ያቅርቡ።", timer: 20 },
     ],
   },
   "derek-tibs": {
     title: "Derek Tibs", titleAm: "ድርቅ ጥብስ",
     image: recipeTibs, time: "35m", difficulty: "Easy", rating: 4.6,
     category: "Quick Meals", servings: 3,
-    description: "Dry-fried cubed beef with rosemary, jalapeños, and onions. One of the easiest and most satisfying Ethiopian dishes to cook — ready in 35 minutes, full of flavor.",
-    descriptionAm: "ከሮዝሜሪ፣ ቃሪያና ሽንኩርት ጋር የተጠበሰ ስጋ። ለማብሰል ቀላል ከሆኑ የኢትዮጵያ ምግቦች አንዱ ነው። በ35 ደቂቃ ውስጥ ይጠናቀቃል።",
-    videoUrl: "https://www.youtube.com/embed/CqAyM8sPgH8",
+    description: "Dry-fried cubed beef with rosemary, jalapeños, and onions. One of the easiest Ethiopian dishes — ready in 35 minutes.",
+    descriptionAm: "ከሮዝሜሪ፣ ቃሪያና ሽንኩርት ጋር የተጠበሰ ስጋ። ለማብሰል ቀላል የኢትዮጵያ ምግብ ነው።",
+    videoUrl: "https://www.youtube.com/embed/a3pGiRuLfDo?rel=0",
     tips: [
-      "Use high heat and don't overcrowd the pan — cook in batches if needed",
-      "The meat should sizzle when it hits the pan. If it doesn't, your pan isn't hot enough",
+      "Use high heat and don't overcrowd the pan",
       "Pat the beef dry before cooking for better browning",
-      "Don't move the meat too much — let it sear on each side for a nice crust",
-      "Add the rosemary at the end so it doesn't burn and become bitter",
+      "Don't move the meat too much — let it sear",
+      "Add rosemary at the end so it doesn't burn",
     ],
     tipsAm: [
       "ከፍተኛ ሙቀት ይጠቀሙ ድስቱን በጣም አይሙሉ",
-      "ስጋው ድስቱ ላይ ሲያርፍ ፍስ ማለት አለበት",
-      "ለተሻለ ጥብስ ከማብሰልዎ በፊት ስጋውን ያድርቁ",
+      "ለተሻለ ጥብስ ስጋውን ያድርቁ",
       "ስጋውን ብዙ አያንቀሳቅሱ",
       "ሮዝሜሪውን በመጨረሻ ጨምሩ",
     ],
     ingredients: [
-      { name: "Beef, cut into 1-inch cubes", nameAm: "ስጋ፣ 1 ኢንች ኩብ ተቆራርጦ", amount: "500g", note: "Use sirloin or tenderloin for the most tender results." },
-      { name: "Red onion, sliced into half-moons", nameAm: "ቀይ ሽንኩርት፣ ግማሽ ጨረቃ ተቆርጦ", amount: "2 large" },
-      { name: "Fresh jalapeño peppers, sliced", nameAm: "ቃሪያ፣ ተቆራርጦ", amount: "3", note: "Remove seeds for less heat. Wear gloves if you have sensitive skin." },
-      { name: "Fresh rosemary sprigs", nameAm: "ሮዝሜሪ", amount: "3 sprigs", note: "Fresh is much better than dried. Strip the leaves from the woody stems." },
-      { name: "Niter kibbeh or butter", nameAm: "ንጥር ቅቤ", amount: "3 tablespoons" },
+      { name: "Beef, cut into 1-inch cubes", nameAm: "ስጋ፣ ኩብ ተቆራርጦ", amount: "500g", note: "Use sirloin or tenderloin." },
+      { name: "Red onion, sliced", nameAm: "ቀይ ሽንኩርት", amount: "2 large" },
+      { name: "Fresh jalapeño peppers", nameAm: "ቃሪያ", amount: "3" },
+      { name: "Fresh rosemary", nameAm: "ሮዝሜሪ", amount: "3 sprigs" },
+      { name: "Niter kibbeh", nameAm: "ንጥር ቅቤ", amount: "3 tablespoons" },
       { name: "Black pepper", nameAm: "ጥቁር ቁንዶ በርበሬ", amount: "½ teaspoon" },
       { name: "Salt", nameAm: "ጨው", amount: "to taste" },
-      { name: "Awaze sauce (optional, for dipping)", nameAm: "አዋዜ (አማራጭ)", amount: "for serving" },
     ],
     steps: [
-      { instruction: "Pat the beef cubes completely dry with paper towels. Season generously with salt and black pepper. Let sit for 5 minutes.", instructionAm: "ስጋውን በወረቀት በደንብ ያድርቁ። በጨውና ጥቁር ቁንዶ በርበሬ ያጣፍጡ። ለ5 ደቂቃ ያስቀምጡ።", timer: 5 },
-      { instruction: "Heat niter kibbeh in a large, heavy pan (cast iron is ideal) over HIGH heat until the butter is shimmering and almost smoking.", instructionAm: "ንጥር ቅቤውን በትልቅ ከባድ ድስት ውስጥ በከፍተኛ እሳት ያሙቁ።", timer: 2, tip: "The pan must be very hot for proper searing. This is the key to great tibs.", tipAm: "ድስቱ ለትክክለኛ ጥብስ በጣም ሞቃት መሆን አለበት።" },
-      { instruction: "Add the beef cubes in a single layer — don't overcrowd. Sear without moving for 2 minutes, then flip and sear the other side. The meat should have a deep brown crust.", instructionAm: "ስጋውን በአንድ ንብርብር ያስቀምጡ። ሳያንቀሳቅሱ ለ2 ደቂቃ ይጠብሱ፣ ከዚያ ገልብጠው ይጠብሱ።", timer: 6 },
-      { instruction: "Add the sliced onions and jalapeños. Toss everything together and cook for 5 minutes until the onions soften but still have some bite.", instructionAm: "ሽንኩርትና ቃሪያ ጨምሩ። ሁሉንም ያቀላቅሉ ለ5 ደቂቃ ያብስሉ።", timer: 5, tip: "Don't let the onions get mushy — they should be slightly crisp.", tipAm: "ሽንኩርቱ መለሰለስ የለበትም — ትንሽ ክሪስፒ መሆን አለበት።" },
-      { instruction: "Strip rosemary leaves from stems and scatter over the tibs. Toss once more and remove from heat. Taste and adjust salt.", instructionAm: "ሮዝሜሪውን ከግንዱ ላይ ያውጡ በጥብሱ ላይ ያብትኑ። ከእሳት ያውጡ።", timer: 2 },
-      { instruction: "Serve immediately on a hot plate (a clay 'dist' if you have one) with injera or fresh bread. Serve awaze sauce on the side for dipping.", instructionAm: "ወዲያው በሞቃት ሳህን (ጭልፋ ካለ) ከእንጀራ ወይም ዳቦ ጋር ያቅርቡ።" },
+      { instruction: "Pat beef dry. Season with salt and pepper. Let sit 5 minutes.", instructionAm: "ስጋውን ያድርቁ። በጨውና ቁንዶ በርበሬ ያጣፍጡ።", timer: 5 },
+      { instruction: "Heat niter kibbeh in a heavy pan over HIGH heat until shimmering.", instructionAm: "ንጥር ቅቤውን በከፍተኛ እሳት ያሙቁ።", timer: 2 },
+      { instruction: "Sear the beef in a single layer. 2 minutes per side for a deep brown crust.", instructionAm: "ስጋውን ያለማቋረጥ ይጠብሱ።", timer: 6 },
+      { instruction: "Add onions and jalapeños. Toss and cook 5 minutes.", instructionAm: "ሽንኩርትና ቃሪያ ጨምሩ። ለ5 ደቂቃ ያብስሉ።", timer: 5 },
+      { instruction: "Add rosemary leaves. Toss once and serve on a hot plate with injera.", instructionAm: "ሮዝሜሪ ጨምሩ። ከእንጀራ ጋር ያቅርቡ።", timer: 2 },
     ],
   },
   "beyaynetu": {
     title: "Beyaynetu", titleAm: "በያይነቱ",
     image: recipeBeyaynetu, time: "2h", difficulty: "Medium", rating: 4.8,
     category: "Traditional", servings: 6,
-    description: "A stunning fasting platter featuring an assortment of colorful vegetarian dishes served together on injera. This is Ethiopian communal dining at its finest — perfect for gatherings.",
-    descriptionAm: "በእንጀራ ላይ በብዙ ዓይነት ጾም ምግቦች የሚቀርብ ድንቅ ምግብ። ይህ ለመሰባሰቢያ ፍጹም ነው።",
-    videoUrl: "https://www.youtube.com/embed/UmB0V-O2N9w",
+    description: "A stunning fasting platter featuring an assortment of colorful vegetarian dishes served together on injera.",
+    descriptionAm: "በእንጀራ ላይ በብዙ ዓይነት ጾም ምግቦች የሚቀርብ ድንቅ ምግብ።",
+    videoUrl: "https://www.youtube.com/embed/Kpb7keGawDQ?rel=0",
     tips: [
       "Prepare each dish separately and arrange beautifully on the injera",
-      "Start with the dishes that take longest (misir wot) and work backwards",
-      "Each dish should be seasoned independently — taste as you go",
+      "Start with the dishes that take longest (misir wot)",
+      "Each dish should be seasoned independently",
       "Use colorful vegetables for visual appeal",
-      "The platter should have a variety of textures and flavors: spicy, mild, crunchy, smooth",
     ],
     tipsAm: [
-      "እያንዳንዱን ምግብ ለብቻ ያዘጋጁ በእንጀራ ላይ በቆንጆ ያስቀምጡ",
-      "ረጅም ጊዜ የሚወስዱ ምግቦችን (ምስር ወጥ) ቀድሞ ይጀምሩ",
+      "እያንዳንዱን ምግብ ለብቻ ያዘጋጁ",
+      "ረጅም ጊዜ የሚወስዱ ምግቦችን ቀድሞ ይጀምሩ",
       "እያንዳንዱ ምግብ ለብቻ ጣዕም ሊኖረው ይገባል",
-      "ለእይታ ማራኪነት ቀለማት ያላቸው አትክልቶችን ይጠቀሙ",
-      "በሳህኑ ላይ የተለያዩ ሸካራና ጣዕሞች ሊኖሩ ይገባል",
+      "ቀለማት ያላቸው አትክልቶችን ይጠቀሙ",
     ],
     ingredients: [
-      { name: "Red lentils (for misir wot)", nameAm: "ቀይ ምስር (ለምስር ወጥ)", amount: "2 cups", note: "Wash lentils thoroughly until water runs clear. No need to soak." },
-      { name: "Collard greens (for gomen)", nameAm: "ጎመን", amount: "1 large bunch", note: "Remove thick stems and chop leaves finely." },
-      { name: "Green cabbage & carrots (for atkilt)", nameAm: "ጎመንና ካሮት (ለአትክልት)", amount: "1 small head + 3 carrots", note: "Shred the cabbage thinly and slice carrots into thin rounds." },
+      { name: "Red lentils (for misir wot)", nameAm: "ቀይ ምስር", amount: "2 cups" },
+      { name: "Collard greens (for gomen)", nameAm: "ጎመን", amount: "1 large bunch" },
+      { name: "Green cabbage & carrots", nameAm: "ጎመንና ካሮት", amount: "1 head + 3 carrots" },
       { name: "Shiro powder", nameAm: "ሽሮ ዱቄት", amount: "1 cup" },
-      { name: "Red onions", nameAm: "ቀይ ሽንኩርት", amount: "6 large (total)" },
+      { name: "Red onions", nameAm: "ቀይ ሽንኩርት", amount: "6 large" },
       { name: "Olive oil", nameAm: "የወይራ ዘይት", amount: "½ cup" },
       { name: "Berbere spice", nameAm: "በርበሬ", amount: "3 tablespoons" },
       { name: "Turmeric", nameAm: "ኩርኩም", amount: "1 teaspoon" },
-      { name: "Garlic & ginger", nameAm: "ነጭ ሽንኩርትና ዝንጅብል", amount: "6 cloves + 1 tbsp" },
-      { name: "Injera (for serving)", nameAm: "እንጀራ", amount: "4-6 pieces" },
-      { name: "Salt", nameAm: "ጨው", amount: "to taste" },
+      { name: "Injera", nameAm: "እንጀራ", amount: "4-6 pieces" },
     ],
     steps: [
-      { instruction: "Start with Misir Wot: Cook 2 diced onions in oil until golden. Add berbere, then washed lentils with 3 cups water. Simmer until lentils are soft and saucy (about 25 min).", instructionAm: "ምስር ወጥ ይጀምሩ: 2 ሽንኩርት በዘይት ያብስሉ። በርበሬ ጨምሩ፣ ከዚያ ምስሩን ከ3 ኩባያ ውሃ ጋር ያፍሉ።", timer: 30, tip: "Stir lentils occasionally to prevent sticking. Add water if they dry out." },
-      { instruction: "Make Gomen: Sauté 1 diced onion and garlic in oil. Add chopped collard greens and cook until tender but still bright green. Season with salt.", instructionAm: "ጎመን: 1 ሽንኩርትና ነጭ ሽንኩርት በዘይት ያብስሉ። ጎመን ጨምሩ እስኪለሰልስ ያብስሉ።", timer: 15 },
-      { instruction: "Make Atkilt: Sauté 1 onion with turmeric in oil. Add shredded cabbage and sliced carrots. Cook covered until tender-crisp, about 12 minutes.", instructionAm: "አትክልት: 1 ሽንኩርት ከኩርኩም ጋር ያብስሉ። ጎመንና ካሮት ጨምሩ። ድፍን ለ12 ደቂቃ ያብስሉ።", timer: 15 },
-      { instruction: "Make Shiro: Follow the Shiro Wot recipe — cook onions, add shiro powder with water, simmer until thick and creamy.", instructionAm: "ሽሮ: ሽንኩርት ያብስሉ፣ ሽሮ ከውሃ ጋር ጨምሩ፣ እስኪወፍር ያፍሉ።", timer: 25 },
-      { instruction: "Arrange the platter: Lay a large injera on a round tray. Spoon each dish in separate sections around the injera, creating a colorful wheel pattern.", instructionAm: "ሳህኑን ያዘጋጁ: ትልቅ እንጀራ ይዘርጉ። እያንዳንዱን ምግብ በተለያየ ቦታ ያስቀምጡ።", timer: 10, tip: "Roll extra injera and place around the edges for tearing and scooping." },
+      { instruction: "Start with Misir Wot: Cook diced onions in oil until golden. Add berbere, then lentils with 3 cups water. Simmer 25 minutes.", instructionAm: "ምስር ወጥ ይጀምሩ: ሽንኩርት ያብስሉ። በርበሬና ምስር ጨምሩ።", timer: 30 },
+      { instruction: "Make Gomen: Sauté onion and garlic. Add collard greens and cook until tender.", instructionAm: "ጎመን: ሽንኩርትና ነጭ ሽንኩርት ያብስሉ። ጎመን ጨምሩ።", timer: 15 },
+      { instruction: "Make Atkilt: Sauté onion with turmeric. Add cabbage and carrots. Cook covered 12 min.", instructionAm: "አትክልት: ሽንኩርት ከኩርኩም ጋር ያብስሉ። ጎመንና ካሮት ጨምሩ።", timer: 15 },
+      { instruction: "Arrange the platter: Lay injera on a round tray. Spoon each dish in separate sections.", instructionAm: "ትልቅ እንጀራ ይዘርጉ። እያንዳንዱን ምግብ በተለያየ ቦታ ያስቀምጡ።", timer: 10 },
     ],
   },
   "coffee-ceremony": {
     title: "Ethiopian Coffee Ceremony", titleAm: "ቡና ሥነ ሥርዓት",
     image: recipeCoffee, time: "1h", difficulty: "Easy", rating: 4.9,
     category: "Beverage", servings: 6,
-    description: "The sacred Ethiopian coffee ceremony (Buna) — a beautiful ritual of roasting, grinding, and brewing that brings people together. More than making coffee, it's a social tradition that has been practiced for centuries.",
-    descriptionAm: "ቅዱስ የኢትዮጵያ ቡና ሥነ ሥርዓት — ሰዎችን የሚያገናኝ የማጠብሻ፣ የመፍጨትና የማፍላት ባህላዊ ሥነ ሥርዓት። ለዘመናት ሲለማመዱ የቆዩ ባህል ነው።",
-    videoUrl: "https://www.youtube.com/embed/2gQOxfJNDjU",
+    description: "The sacred Ethiopian coffee ceremony — roasting, grinding, and brewing that brings people together.",
+    descriptionAm: "ቅዱስ የኢትዮጵያ ቡና ሥነ ሥርዓት — ሰዎችን የሚያገናኝ ባህላዊ ሥነ ሥርዓት።",
+    videoUrl: "https://www.youtube.com/embed/j5RoFVDuYr8?rel=0",
     tips: [
-      "The ceremony traditionally has 3 rounds: Abol (first, strongest), Tona (second), and Bereka (third, mildest)",
-      "Burn frankincense (etan) during the ceremony to create a fragrant atmosphere",
-      "Always serve with popcorn (fendisha) or kolo (roasted barley snack)",
-      "The host traditionally serves the eldest guest first as a sign of respect",
-      "A traditional jebena (clay coffee pot) gives the best flavor, but a regular pot works too",
+      "The ceremony has 3 rounds: Abol (strongest), Tona (second), Bereka (mildest)",
+      "Burn frankincense (etan) for authentic atmosphere",
+      "Always serve with popcorn (fendisha) or kolo",
+      "The host traditionally serves the eldest guest first",
     ],
     tipsAm: [
-      "ሥነ ሥርዓቱ 3 ዙሮች አሉት: አቦል (የመጀመሪያ፣ ጠንካራ)፣ ቶና (ሁለተኛ)፣ በረካ (ሦስተኛ፣ ለስላሳ)",
-      "ለመዓዛ ከቡና ሥነ ሥርዓቱ ጋር እጣን ያጥኑ",
-      "ሁልጊዜ ከፋንድሻ ወይም ቆሎ ጋር ያቅርቡ",
-      "አስተናጋጁ በባህል ትልቁን እንግዳ ቀድሞ ያቀርባል",
-      "ባህላዊ ጀበና ምርጥ ጣዕም ይሰጣል",
+      "ሥነ ሥርዓቱ 3 ዙሮች: አቦል፣ ቶና፣ በረካ",
+      "ለመዓዛ እጣን ያጥኑ",
+      "ከፋንድሻ ወይም ቆሎ ጋር ያቅርቡ",
+      "ትልቁን እንግዳ ቀድሞ ያቅርቡ",
     ],
     ingredients: [
-      { name: "Green (raw) coffee beans", nameAm: "ጥሬ ቡና", amount: "200g (about 1 cup)", note: "Ethiopian origin beans (Yirgacheffe or Sidamo) are ideal. Available at specialty coffee shops." },
-      { name: "Fresh water", nameAm: "ንጹህ ውሃ", amount: "1 liter", note: "Use filtered water for the best flavor." },
-      { name: "Frankincense (etan)", nameAm: "እጣን", amount: "a few pieces", note: "Burn on charcoal during the ceremony for authentic atmosphere." },
-      { name: "Sugar", nameAm: "ስኳር", amount: "to taste", note: "Traditionally served with sugar, but some prefer without." },
-      { name: "Popcorn (fendisha)", nameAm: "ፋንድሻ", amount: "2 cups, freshly popped", note: "Traditional accompaniment. Pop fresh for the best experience." },
-      { name: "Kolo (roasted barley snack)", nameAm: "ቆሎ", amount: "1 cup (optional)" },
-      { name: "Small coffee cups (sini)", nameAm: "ሲኒ", amount: "6 cups" },
+      { name: "Green coffee beans", nameAm: "ጥሬ ቡና", amount: "200g", note: "Ethiopian origin (Yirgacheffe or Sidamo) is ideal." },
+      { name: "Fresh water", nameAm: "ንጹህ ውሃ", amount: "1 liter" },
+      { name: "Frankincense (etan)", nameAm: "እጣን", amount: "a few pieces" },
+      { name: "Sugar", nameAm: "ስኳር", amount: "to taste" },
+      { name: "Popcorn (fendisha)", nameAm: "ፋንድሻ", amount: "2 cups" },
     ],
     steps: [
-      { instruction: "Wash the green coffee beans in a pan of water, removing any debris or broken beans. Drain completely and pat dry.", instructionAm: "ጥሬ ቡናውን በውሃ ሟሟት ይታጠቡ። ሙሉ በሙሉ ያፍስሱ ያድርቁ።", timer: 5 },
-      { instruction: "Place a flat pan (mekeshkesha) over medium heat. Add the green beans and roast, shaking the pan frequently. The beans will turn from green to golden, then to dark brown, releasing a wonderful aroma.", instructionAm: "ጠፍጣፋ ድስት (መከሸከሻ) ላይ ያሙቁ። ቡናውን ጨምሩ ያለማቋረጥ ያወዛወዙ። ቡናው ከአረንጓዴ ወደ ወርቃማ ከዚያ ወደ ጥቁር ቡናማ ይቀየራል።", timer: 15, tip: "Watch carefully — the beans can go from perfectly roasted to burnt in seconds. They should be dark brown, not black.", tipAm: "በጥንቃቄ ያስተውሉ — በሰከንዶች ውስጥ ሊቃጠሉ ይችላሉ።" },
-      { instruction: "Walk the pan of freshly roasted beans around to let everyone smell the wonderful aroma — this is an important part of the ceremony! Fan the smoke towards each guest.", instructionAm: "ባቀቡን ቡና ሁሉም እንዲሸተው ይዞር — ይህ የሥነ ሥርዓቱ አስፈላጊ ክፍል ነው!", timer: 3 },
-      { instruction: "Grind the roasted beans using a mortar and pestle (mukecha and zenezena). Pound rhythmically until you get a fine to medium powder.", instructionAm: "የተጠበሰውን ቡና በሙከቻና ዘነዘና ይፍጩ። ቀጭን ወደ መካከለኛ ዱቄት ያድርጉት።", timer: 8, tip: "The grinding sound is part of the ceremony's rhythm. Traditionally, the grinding motion is meditative.", tipAm: "የመፍጨት ድምፅ የሥነ ሥርዓቱ አካል ነው።" },
-      { instruction: "Fill the jebena (clay coffee pot) with water and bring to a boil. Add the ground coffee, stir once, and let it come back to a boil. When it starts to rise, remove from heat and let it settle. Repeat this 2-3 times.", instructionAm: "ጀበናውን ውሃ ሙሉ ያፍሉ። የተፈጨውን ቡና ጨምሩ አንድ ጊዜ ያነሱ ይፍሉ። ሲነሳ ከእሳት ያውጡ ይረጋ። ይህን 2-3 ጊዜ ይድገሙ።", timer: 10 },
-      { instruction: "Pour the coffee slowly into small cups (sini) from a height — this aerates the coffee and is part of the presentation. Serve with sugar on the side, popcorn, and kolo. Enjoy three rounds: Abol, Tona, and Bereka.", instructionAm: "ቡናውን ቀስ ብለው ከከፍታ ወደ ሲኒ ይቅዱ። ከስኳር፣ ፋንድሻና ቆሎ ጋር ያቅርቡ። ሶስት ዙር ይጠጡ: አቦል፣ ቶና፣ በረካ።" },
+      { instruction: "Wash the green coffee beans, removing debris. Drain and pat dry.", instructionAm: "ጥሬ ቡናውን ይታጠቡ ያድርቁ።", timer: 5 },
+      { instruction: "Roast beans in a flat pan over medium heat, shaking frequently. They'll turn from green to dark brown.", instructionAm: "ቡናውን በመከሸከሻ ያጠብሱ። ጥቁር ቡናማ እስኪሆን።", timer: 15, tip: "Watch carefully — they can burn in seconds." },
+      { instruction: "Walk the roasted beans around to let everyone smell the aroma.", instructionAm: "ባቀቡን ቡና ሁሉም እንዲሸተው ይዞር።", timer: 3 },
+      { instruction: "Grind using mortar and pestle until fine powder.", instructionAm: "በሙከቻና ዘነዘና ይፍጩ።", timer: 8 },
+      { instruction: "Boil water in jebena. Add ground coffee, let it rise 2-3 times.", instructionAm: "ውሃ በጀበና ያፍሉ። ቡና ጨምሩ 2-3 ጊዜ ይፍሉ።", timer: 10 },
+      { instruction: "Pour slowly into cups from a height. Serve with sugar, popcorn, and kolo.", instructionAm: "ቀስ ብለው ከከፍታ ወደ ሲኒ ይቅዱ። ያቅርቡ።" },
+    ],
+  },
+  // --- WESTERN / FOREIGN DISHES ---
+  "pasta-carbonara": {
+    title: "Pasta Carbonara", titleAm: "ፓስታ ካርቦናራ",
+    image: recipePasta, time: "25m", difficulty: "Easy", rating: 4.7,
+    category: "International", servings: 4,
+    description: "Classic Italian pasta with a creamy egg and cheese sauce, crispy guanciale (or pancetta), and freshly cracked black pepper. A simple yet luxurious dish.",
+    descriptionAm: "ክላሲክ የጣሊያን ፓስታ ከክሬም እንቁላልና ቺዝ ሶስ ጋር። ቀላል ግን የሚያማልል ምግብ።",
+    videoUrl: "https://www.youtube.com/embed/D_2DBLAt57c?rel=0",
+    tips: [
+      "Use guanciale (cured pork cheek) for the most authentic flavor — pancetta or thick-cut bacon works too",
+      "Never add cream — traditional carbonara gets its creaminess from eggs and cheese only",
+      "Take the pan OFF the heat before adding the egg mixture to avoid scrambling",
+      "Save plenty of pasta water — it's the secret to a silky sauce",
+      "Use Pecorino Romano for authentic flavor, or mix with Parmigiano-Reggiano",
+    ],
+    tipsAm: [
+      "ለትክክለኛ ጣዕም ጓንቻሌ ይጠቀሙ — ፓንቼታ ወይም ቤከን ይሰራል",
+      "ክሬም አይጨምሩ — ባህላዊ ካርቦናራ ከእንቁላልና ቺዝ ብቻ ክሬማ ይሆናል",
+      "የእንቁላሉን ድብልቅ ከመጨመርዎ በፊት ድስቱን ከእሳት ያውጡ",
+      "የፓስታ ውሃ ያስቀምጡ — ለስስ ሶስ ምስጢሩ ነው",
+      "ለትክክለኛ ጣዕም ፔኮሪኖ ሮማኖ ይጠቀሙ",
+    ],
+    ingredients: [
+      { name: "Spaghetti or rigatoni pasta", nameAm: "ስፓጌቲ ወይም ሪጋቶኒ ፓስታ", amount: "400g", note: "Use a thick pasta that holds the sauce well." },
+      { name: "Guanciale or thick-cut bacon", nameAm: "ጓንቻሌ ወይም ቤከን", amount: "200g", note: "Cut into small strips or cubes." },
+      { name: "Egg yolks", nameAm: "የእንቁላል አስኳል", amount: "4 large", note: "Plus 1 whole egg. Room temperature is best." },
+      { name: "Pecorino Romano cheese, finely grated", nameAm: "ፔኮሪኖ ሮማኖ ቺዝ", amount: "100g", note: "Or mix 50/50 with Parmesan." },
+      { name: "Freshly cracked black pepper", nameAm: "ትኩስ ጥቁር ቁንዶ በርበሬ", amount: "2 teaspoons", note: "Use a pepper mill and crack it fresh — this is a key flavor." },
+      { name: "Salt (for pasta water)", nameAm: "ጨው (ለፓስታ ውሃ)", amount: "generous" },
+    ],
+    steps: [
+      { instruction: "Bring a large pot of well-salted water to a rolling boil (it should taste like the sea). Add the pasta and cook until al dente — about 1 minute less than package directions.", instructionAm: "ትልቅ ድስት ውሃ ያፍሉ ጨው ጨምሩ። ፓስታውን ጨምሩ አል ዴንቴ (ትንሽ ጠንከር) ያብስሉ።", timer: 10, tip: "Save 2 cups of starchy pasta water before draining — you'll need it!", tipAm: "ከማፍሰሱ በፊት 2 ኩባያ የፓስታ ውሃ ያስቀምጡ!" },
+      { instruction: "While pasta cooks, cut guanciale into strips. Cook in a cold pan over medium heat — let the fat render slowly until crispy and golden, about 8 minutes.", instructionAm: "ፓስታው ሲበስል ጓንቻሌውን ቁራጭ ያድርጉ። በቀዝቃዛ ድስት ላይ ያብስሉ — ቅባቱ ቀስ ብሎ ይቀልጣል።", timer: 8, tip: "Start in a cold pan — this renders the fat perfectly without burning.", tipAm: "በቀዝቃዛ ድስት ይጀምሩ — ቅባቱ በትክክል ይቀልጣል።" },
+      { instruction: "In a bowl, whisk together egg yolks, whole egg, grated Pecorino, and most of the black pepper until smooth. This is your carbonara sauce.", instructionAm: "በሳህን ውስጥ የእንቁላል አስኳሎችን፣ ሙሉ እንቁላልን፣ ቺዝንና ቁንዶ በርበሬን ያቀላቅሉ።", timer: 2 },
+      { instruction: "When pasta is al dente, transfer it directly to the pan with guanciale using tongs (keep the pasta water!). Toss for 30 seconds to coat.", instructionAm: "ፓስታው ሲበስል በቀጥታ ወደ ጓንቻሌው ድስት ያዛውሩ። ለ30 ሰከንድ ያቀላቅሉ።", timer: 1 },
+      { instruction: "REMOVE the pan from heat. Wait 30 seconds, then pour the egg-cheese mixture over the pasta while tossing vigorously. Add pasta water 1 tablespoon at a time until silky and creamy.", instructionAm: "ድስቱን ከእሳት ያውጡ። 30 ሰከንድ ይጠብቁ ከዚያ የእንቁላሉን ድብልቅ እያነሱ ያፍስሱ። የፓስታ ውሃ ቀስ ብለው ይጨምሩ።", timer: 2, tip: "The residual heat will cook the eggs gently into a cream — never put it back on direct heat!", tipAm: "ቀሪው ሙቀት እንቁላሎቹን ቀስ ብሎ ወደ ክሬም ያበስላል — ወደ ቀጥታ ሙቀት አይመልሱ!" },
+      { instruction: "Serve immediately in warm bowls. Top with extra Pecorino and a generous crack of black pepper. Enjoy!", instructionAm: "ወዲያው በሞቃት ሳህኖች ያቅርቡ። ተጨማሪ ቺዝና ቁንዶ በርበሬ ይጨምሩ።" },
+    ],
+  },
+  "classic-burger": {
+    title: "Classic Smash Burger", titleAm: "ክላሲክ ስማሽ በርገር",
+    image: recipeBurger, time: "20m", difficulty: "Easy", rating: 4.8,
+    category: "International", servings: 4,
+    description: "Juicy, crispy-edged smash burgers with melted cheese, fresh toppings, and a toasted sesame bun. Restaurant-quality at home.",
+    descriptionAm: "ጣፋጭ ከቺዝ ጋር የተቀጠቀጠ በርገር ከትኩስ ንጥረ ነገሮች ጋር። የቤት ውስጥ የሬስቶራንት ጥራት።",
+    videoUrl: "https://www.youtube.com/embed/gJCaOlgp5LI?rel=0",
+    tips: [
+      "Use beef with 80/20 lean-to-fat ratio — the fat makes it juicy",
+      "Don't overwork the meat when forming balls — just loosely shape them",
+      "Get your pan screaming hot before smashing — cast iron works best",
+      "Smash once and don't touch it again until you flip — this creates the crispy crust",
+      "Add cheese right after flipping while the patty is still on the pan",
+    ],
+    tipsAm: [
+      "80/20 ስጋ-ቅባት ጥመርታ ይጠቀሙ — ቅባቱ ጣፋጭ ያደርገዋል",
+      "ስጋውን ሲያዘጋጁ ብዙ አያድርሱ — በልማድ ያጠጋጉ",
+      "ከመጨፍለቅዎ በፊት ድስቱን በጣም ያሙቁ — የብረት ድስት ምርጥ ነው",
+      "አንድ ጊዜ ይጨፍልቁ ከዚያ እስኪገለበጥ አይንኩት",
+      "ሲገልብጡ ወዲያው ቺዝ ይጨምሩ",
+    ],
+    ingredients: [
+      { name: "Ground beef (80/20)", nameAm: "የተፈጨ ስጋ (80/20)", amount: "500g", note: "Divide into 4 equal balls, about 125g each." },
+      { name: "American or cheddar cheese slices", nameAm: "አሜሪካን ወይም ቼዳር ቺዝ", amount: "4 slices" },
+      { name: "Sesame seed burger buns", nameAm: "ሰሰሚ ሲድ በርገር ዳቦ", amount: "4", note: "Toast cut-side down in butter for best results." },
+      { name: "Iceberg lettuce", nameAm: "ሰላጣ", amount: "4 leaves" },
+      { name: "Tomato, sliced", nameAm: "ቲማቲም ተቆራርጦ", amount: "1 large" },
+      { name: "Red onion, sliced into thin rings", nameAm: "ቀይ ሽንኩርት", amount: "1" },
+      { name: "Pickles", nameAm: "ፒክልስ", amount: "8 slices" },
+      { name: "Ketchup & mustard", nameAm: "ከቸፕና ሞስታርድ", amount: "to taste" },
+      { name: "Salt & pepper", nameAm: "ጨውና ቁንዶ በርበሬ", amount: "to taste" },
+      { name: "Butter (for toasting buns)", nameAm: "ቅቤ (ለዳቦ)", amount: "2 tablespoons" },
+    ],
+    steps: [
+      { instruction: "Divide ground beef into 4 balls (about 125g each). Do NOT flatten them yet. Season the outside generously with salt and pepper.", instructionAm: "ስጋውን ወደ 4 ኳሶች ይከፋፍሉ። ገና አያጠፍጡ። በጨውና ቁንዶ በርበሬ ያጣፍጡ።", timer: 3 },
+      { instruction: "Heat a cast iron pan or flat griddle over HIGH heat for 2 minutes — it needs to be smoking hot. Add a tiny bit of oil.", instructionAm: "የብረት ድስት ለ2 ደቂቃ በከፍተኛ ሙቀት ያሙቁ — ጭስ ማጠን ያስፈልገዋል።", timer: 2, tip: "If it's not smoking, it's not hot enough!", tipAm: "ጭስ ካላጠነ በቂ ሙቀት የለውም!" },
+      { instruction: "Place a beef ball on the pan and SMASH it flat with a sturdy spatula or pan press. Press hard for 10 seconds. Season the top. Cook without touching for 2-3 minutes until edges are dark and crispy.", instructionAm: "ስጋውን በድስቱ ላይ ያስቀምጡ በጠንካራ ስፓቱላ ይጨፍልቁ። ሳይነኩ ለ2-3 ደቂቃ ያብስሉ።", timer: 3, tip: "You should hear an aggressive sizzle — that's the Maillard reaction creating flavor.", tipAm: "ጠንካራ ፍስ ድምፅ መስማት አለብዎት — ጣዕም የሚፈጥረው ነው።" },
+      { instruction: "Flip the patty. Immediately place a slice of cheese on top. Cook for 1 more minute. The cheese should melt from the residual heat.", instructionAm: "ስጋውን ገልብጡ። ወዲያው ቺዝ ይጨምሩ። ለ1 ደቂቃ ያብስሉ።", timer: 1 },
+      { instruction: "Toast the buns: Spread butter on the cut sides and place face-down in the hot pan for 30 seconds until golden.", instructionAm: "ዳቦውን ያጠብሱ: ቅቤ ይቀቡ ለ30 ሰከንድ ወደ ታች ያድርጉ።", timer: 1 },
+      { instruction: "Assemble: Bottom bun → ketchup → lettuce → patty with cheese → pickles → onion → tomato → mustard → top bun. Serve immediately!", instructionAm: "ያገጣጥሙ: ዳቦ → ከቸፕ → ሰላጣ → ስጋና ቺዝ → ፒክልስ → ሽንኩርት → ቲማቲም → ሞስታርድ → ዳቦ። ወዲያው ያቅርቡ!" },
+    ],
+  },
+  "chicken-teriyaki": {
+    title: "Chicken Teriyaki", titleAm: "ቺኬን ቴሪያኪ",
+    image: recipeTeriyaki, time: "30m", difficulty: "Easy", rating: 4.6,
+    category: "International", servings: 4,
+    description: "Tender chicken thighs glazed with a sweet-savory homemade teriyaki sauce, served over steamed rice with sesame seeds and scallions.",
+    descriptionAm: "ጣፋጭ-ጨዋማ ቴሪያኪ ሶስ የተቀቡ ዶሮ ለግ ቁርጥራጮች ከዴስ ሩዝ ጋር ይቀርባሉ።",
+    videoUrl: "https://www.youtube.com/embed/VCRk_sLsB6Q?rel=0",
+    tips: [
+      "Use chicken thighs instead of breast — they're more tender and flavorful",
+      "Make the teriyaki sauce from scratch — it's much better than store-bought",
+      "Let the sauce reduce until it coats the back of a spoon (nappe stage)",
+      "For extra crispy chicken, pat dry and sear skin-side down first",
+      "Garnish with toasted sesame seeds and thinly sliced green onions",
+    ],
+    tipsAm: [
+      "ከጡት ይልቅ ዶሮ ለግ ይጠቀሙ — ይበልጥ ለስላሳና ጣፋጭ ናቸው",
+      "ቴሪያኪ ሶስ ከባዶ ይስሩ — ከመደብር የተገዛ ይበልጣል",
+      "ሶሱ ማንኪያውን እስኪለብስ ድረስ ይቀንሱ",
+      "ለተጨማሪ ክሪስፒ ዶሮ ያድርቁ ቆዳውን ወደ ታች ያጠብሱ",
+      "በቶስት ሰሰሚ ሲድና ቀጫጭን ስካሊዮን ያስጌጡ",
+    ],
+    ingredients: [
+      { name: "Boneless chicken thighs", nameAm: "አጥንት የሌለው ዶሮ ለግ", amount: "600g (about 6 thighs)", note: "Trim excess fat. Score the thick parts for even cooking." },
+      { name: "Soy sauce", nameAm: "ሶይ ሶስ", amount: "¼ cup (60ml)", note: "Use regular soy sauce, not low-sodium." },
+      { name: "Mirin (sweet rice wine)", nameAm: "ሚሪን", amount: "3 tablespoons", note: "If unavailable, use 2 tbsp rice vinegar + 1 tbsp sugar." },
+      { name: "Brown sugar or honey", nameAm: "ቡናማ ስኳር ወይም ማር", amount: "2 tablespoons" },
+      { name: "Rice vinegar", nameAm: "ሩዝ ቪኒገር", amount: "1 tablespoon" },
+      { name: "Fresh ginger, grated", nameAm: "ዝንጅብል", amount: "1 teaspoon" },
+      { name: "Garlic, minced", nameAm: "ነጭ ሽንኩርት", amount: "2 cloves" },
+      { name: "Cornstarch + water (slurry)", nameAm: "ኮርንስታርች + ውሃ", amount: "1 tbsp + 2 tbsp water", note: "Mix together — this thickens the sauce." },
+      { name: "Steamed rice", nameAm: "የተቀቀለ ሩዝ", amount: "3 cups cooked" },
+      { name: "Sesame seeds & green onions", nameAm: "ሰሰሚ ሲድና ስካሊዮን", amount: "for garnish" },
+      { name: "Vegetable oil", nameAm: "የአትክልት ዘይት", amount: "1 tablespoon" },
+    ],
+    steps: [
+      { instruction: "Make the teriyaki sauce: Whisk together soy sauce, mirin, brown sugar, rice vinegar, ginger, and garlic in a small bowl. Set aside.", instructionAm: "ቴሪያኪ ሶስ ይስሩ: ሶይ ሶስ፣ ሚሪን፣ ስኳር፣ ቪኒገር፣ ዝንጅብል እና ነጭ ሽንኩርት ያቀላቅሉ።", timer: 2 },
+      { instruction: "Pat the chicken thighs completely dry. Season with a pinch of salt and pepper. Heat oil in a large pan over medium-high heat.", instructionAm: "ዶሮውን በደንብ ያድርቁ። ትንሽ ጨውና ቁንዶ በርበሬ ይጨምሩ። ዘይቱን ያሙቁ።", timer: 2 },
+      { instruction: "Place chicken skin-side down (or smooth-side). Cook undisturbed for 5-6 minutes until deep golden. Flip and cook 3 more minutes.", instructionAm: "ዶሮውን ቆዳ ወደ ታች ያስቀምጡ። ሳያንቀሳቅሱ ለ5-6 ደቂቃ ያብስሉ። ገልብጠው ለ3 ደቂቃ ያብስሉ።", timer: 9, tip: "Don't move the chicken while searing — let the crust develop.", tipAm: "ሲጠብሱ ዶሮውን አያንቀሳቅሱ — ክራስት እንዲፈጠር ያድርጉ።" },
+      { instruction: "Pour the teriyaki sauce into the pan. Let it simmer and reduce for 3-4 minutes, spooning it over the chicken continuously.", instructionAm: "ቴሪያኪ ሶሱን ወደ ድስቱ ያፍስሱ። ለ3-4 ደቂቃ ያፍሉ ዶሮውን ያለማቋረጥ ይቀቡ።", timer: 4 },
+      { instruction: "Add the cornstarch slurry to the sauce. Stir and cook for 1 minute until the sauce is thick and glossy, coating the chicken.", instructionAm: "ኮርንስታርች ድብልቅ ወደ ሶሱ ጨምሩ። ለ1 ደቂቃ ያቀላቅሉ ሶሱ ወፍራምና ብሩህ እስኪሆን።", timer: 1 },
+      { instruction: "Slice the chicken into strips. Serve over steamed rice, drizzle with extra sauce, and garnish with sesame seeds and sliced green onions.", instructionAm: "ዶሮውን ቁራጭ ያድርጉ። ከዴስ ሩዝ ላይ ያቅርቡ፣ ሶስ ያፍስሱ፣ ሰሰሚ ሲድና ስካሊዮን ይጨምሩ።" },
+    ],
+  },
+  "chicken-tacos": {
+    title: "Mexican Chicken Tacos", titleAm: "ሜክሲካን ቺኬን ታኮስ",
+    image: recipeTacos, time: "35m", difficulty: "Easy", rating: 4.7,
+    category: "International", servings: 4,
+    description: "Flavorful seasoned chicken tacos with fresh salsa, guacamole, and all the fixings in warm corn tortillas.",
+    descriptionAm: "በቅመም የተቀመመ ዶሮ ታኮስ ከትኩስ ሳልሳ፣ ጉዋካሞሌ እና ንጥረ ነገሮች ጋር።",
+    videoUrl: "https://www.youtube.com/embed/wLzN6Nkjwwc?rel=0",
+    tips: [
+      "Use chicken thighs for juicier tacos — breast tends to dry out",
+      "Warm the tortillas in a dry pan or directly over a gas flame for best flavor",
+      "Make the salsa fresh — it only takes 5 minutes and the flavor is incomparable",
+      "Season the chicken generously — taco meat should be well-seasoned",
+      "Serve everything family-style so everyone can build their own tacos",
+    ],
+    tipsAm: [
+      "ለጣፋጭ ታኮስ ዶሮ ለግ ይጠቀሙ — ጡት ይደርቃል",
+      "ቶርቲላዎችን በደረቅ ድስት ወይም በእሳት ላይ ያሙቁ",
+      "ሳልሳውን ትኩስ ይስሩ — 5 ደቂቃ ብቻ ይወስዳል",
+      "ዶሮውን በጣም ያጣፍጡ — የታኮ ስጋ በደንብ ጣዕም ሊኖረው ይገባል",
+      "ሁሉም ሰው የራሱን ታኮ እንዲሰራ ያቅርቡ",
+    ],
+    ingredients: [
+      { name: "Boneless chicken thighs", nameAm: "አጥንት የሌለው ዶሮ ለግ", amount: "500g" },
+      { name: "Taco seasoning (cumin, chili powder, paprika, garlic powder, oregano)", nameAm: "ታኮ ቅመም", amount: "2 tablespoons", note: "Or make your own: 1 tsp each cumin, chili powder, paprika, ½ tsp garlic powder, ½ tsp oregano." },
+      { name: "Corn or flour tortillas", nameAm: "ኮርን ወይም ፍላወር ቶርቲላ", amount: "12 small" },
+      { name: "Ripe avocados (for guacamole)", nameAm: "አቮካዶ (ለጉዋካሞሌ)", amount: "2", note: "Should be slightly soft when pressed." },
+      { name: "Roma tomatoes, diced", nameAm: "ቲማቲም ተቆራርጦ", amount: "3" },
+      { name: "Red onion, finely diced", nameAm: "ቀይ ሽንኩርት", amount: "1" },
+      { name: "Fresh cilantro, chopped", nameAm: "ትኩስ ሲላንትሮ", amount: "½ cup" },
+      { name: "Lime", nameAm: "ሎሚ", amount: "3" },
+      { name: "Sour cream", nameAm: "ሳወር ክሬም", amount: "½ cup" },
+      { name: "Salt", nameAm: "ጨው", amount: "to taste" },
+      { name: "Olive oil", nameAm: "የወይራ ዘይት", amount: "2 tablespoons" },
+    ],
+    steps: [
+      { instruction: "Season chicken with taco seasoning, salt, and juice of 1 lime. Let it marinate for 10 minutes (or up to overnight in the fridge).", instructionAm: "ዶሮውን በታኮ ቅመም፣ ጨውና ሎሚ ያጣፍጡ። ለ10 ደቂቃ ያስፈልጉ።", timer: 10 },
+      { instruction: "Heat oil in a pan over medium-high heat. Cook chicken for 5-6 minutes per side until charred and cooked through (internal temp 165°F/74°C). Rest 5 min, then dice or shred.", instructionAm: "ዘይቱን ያሙቁ። ዶሮውን በእያንዳንዱ ጎን ለ5-6 ደቂቃ ያብስሉ። 5 ደቂቃ ያሳርፉ ከዚያ ይቁረጡ።", timer: 15, tip: "Let the chicken rest before cutting — it keeps the juices inside.", tipAm: "ከመቁረጥዎ በፊት ዶሮውን ያሳርፉ — ጭማቂው ውስጥ ይቆያል።" },
+      { instruction: "Make guacamole: Mash avocados with lime juice, diced onion, cilantro, salt. Leave it slightly chunky for texture.", instructionAm: "ጉዋካሞሌ: አቮካዶ ከሎሚ ጭማቂ፣ ሽንኩርት፣ ሲላንትሮ ጋር ይፈጩ።", timer: 3 },
+      { instruction: "Make fresh salsa: Combine diced tomatoes, remaining onion, cilantro, lime juice, and salt.", instructionAm: "ሳልሳ: ቲማቲም፣ ሽንኩርት፣ ሲላንትሮ፣ ሎሚ ጭማቂና ጨው ያቀላቅሉ።", timer: 2 },
+      { instruction: "Warm tortillas in a dry pan for 30 seconds each side, or over a gas flame for a few seconds until slightly charred.", instructionAm: "ቶርቲላዎችን በደረቅ ድስት ለ30 ሰከንድ በእያንዳንዱ ጎን ያሙቁ።", timer: 3 },
+      { instruction: "Assemble tacos: Warm tortilla → chicken → salsa → guacamole → sour cream → fresh cilantro → squeeze of lime. Serve immediately!", instructionAm: "ታኮስ ያገጣጥሙ: ቶርቲላ → ዶሮ → ሳልሳ → ጉዋካሞሌ → ሳወር ክሬም → ሲላንትሮ → ሎሚ። ወዲያው ያቅርቡ!" },
     ],
   },
 };
@@ -290,7 +444,11 @@ function StepTimer({ seconds, stepIndex }: { seconds: number; stepIndex: number 
   const progress = 1 - remaining / (seconds * 60);
 
   return (
-    <div className="flex items-center gap-3 mt-3">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="flex items-center gap-3 mt-3"
+    >
       <div className="relative w-12 h-12">
         <svg className="w-12 h-12 -rotate-90" viewBox="0 0 36 36">
           <circle cx="18" cy="18" r="15.5" fill="none" className="stroke-muted" strokeWidth="3" />
@@ -305,22 +463,14 @@ function StepTimer({ seconds, stepIndex }: { seconds: number; stepIndex: number 
         </span>
       </div>
       <div className="flex gap-1.5">
-        <Button
-          size="icon" variant="outline"
-          className="h-8 w-8 rounded-full"
-          onClick={() => setRunning(!running)}
-        >
+        <Button size="icon" variant="outline" className="h-8 w-8 rounded-full" onClick={() => setRunning(!running)}>
           {running ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
         </Button>
-        <Button
-          size="icon" variant="ghost"
-          className="h-8 w-8 rounded-full"
-          onClick={() => { setRemaining(seconds * 60); setRunning(false); }}
-        >
+        <Button size="icon" variant="ghost" className="h-8 w-8 rounded-full" onClick={() => { setRemaining(seconds * 60); setRunning(false); }}>
           <RotateCcw className="h-3.5 w-3.5" />
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -346,13 +496,11 @@ export default function RecipeDetail() {
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
         <div className="flex-1 flex items-center justify-center pt-24">
-          <div className="text-center">
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center">
             <h1 className="font-display text-4xl font-bold text-foreground mb-4">Recipe Not Found</h1>
             <p className="text-muted-foreground mb-6 font-body">This recipe doesn't exist yet.</p>
-            <Link to="/">
-              <Button className="rounded-full">← Back to Home</Button>
-            </Link>
-          </div>
+            <Link to="/"><Button className="rounded-full">← Back to Home</Button></Link>
+          </motion.div>
         </div>
       </div>
     );
@@ -373,13 +521,11 @@ export default function RecipeDetail() {
           <div className="container mx-auto">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <Link to="/" className="inline-flex items-center gap-2 text-cream/70 hover:text-cream transition-colors mb-4 font-body text-sm">
-                <ArrowLeft className="h-4 w-4" /> Back to recipes
+                <ArrowLeft className="h-4 w-4" /> {lang === "en" ? "Back to recipes" : "ወደ ምግቦች ተመለስ"}
               </Link>
 
               <div className="flex items-center gap-3 mb-3 flex-wrap">
-                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cream/20 backdrop-blur-sm text-cream">
-                  {recipe.category}
-                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cream/20 backdrop-blur-sm text-cream">{recipe.category}</span>
                 <span className={`flex items-center gap-1 text-sm font-medium ${diffColor[recipe.difficulty]}`}>
                   <Flame className="h-4 w-4" /> {recipe.difficulty}
                 </span>
@@ -411,20 +557,12 @@ export default function RecipeDetail() {
               <Heart className={`h-4 w-4 ${liked ? "fill-primary" : ""}`} />
               {liked ? (lang === "en" ? "Saved" : "ተቀምጧል") : (lang === "en" ? "Save" : "አስቀምጥ")}
             </Button>
-            <Button
-              variant="ghost" size="sm"
-              className="rounded-full gap-1.5 text-muted-foreground"
-              onClick={() => setShowVideo(!showVideo)}
-            >
+            <Button variant="ghost" size="sm" className="rounded-full gap-1.5 text-muted-foreground" onClick={() => setShowVideo(!showVideo)}>
               <Youtube className="h-4 w-4" />
               {lang === "en" ? "Watch Video" : "ቪዲዮ ይመልከቱ"}
             </Button>
           </div>
-          <Button
-            variant="outline" size="sm"
-            className="rounded-full gap-1.5"
-            onClick={() => setLang(lang === "en" ? "am" : "en")}
-          >
+          <Button variant="outline" size="sm" className="rounded-full gap-1.5" onClick={() => setLang(lang === "en" ? "am" : "en")}>
             <Globe className="h-4 w-4" />
             {lang === "en" ? "አማርኛ" : "English"}
           </Button>
@@ -501,15 +639,9 @@ export default function RecipeDetail() {
 
               <ul className="space-y-3">
                 {recipe.ingredients.map((ing, i) => (
-                  <li
-                    key={i}
-                    onClick={() => toggleIngredient(i)}
-                    className="flex items-start gap-3 cursor-pointer group"
-                  >
+                  <li key={i} onClick={() => toggleIngredient(i)} className="flex items-start gap-3 cursor-pointer group">
                     <div className={`mt-0.5 w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-all ${
-                      checkedIngredients.has(i)
-                        ? "bg-primary border-primary"
-                        : "border-border group-hover:border-primary"
+                      checkedIngredients.has(i) ? "bg-primary border-primary" : "border-border group-hover:border-primary"
                     }`}>
                       {checkedIngredients.has(i) && <Check className="h-3 w-3 text-primary-foreground" />}
                     </div>
@@ -556,10 +688,13 @@ export default function RecipeDetail() {
             {/* Progress Bar */}
             <div className="flex items-center gap-1 mb-8">
               {recipe.steps.map((_, i) => (
-                <div key={i} className="flex-1 flex items-center gap-1">
-                  <div className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${
-                    i <= activeStep ? "bg-primary" : "bg-muted"
-                  }`} />
+                <div key={i} className="flex-1">
+                  <motion.div
+                    className={`h-1.5 rounded-full ${i <= activeStep ? "bg-primary" : "bg-muted"}`}
+                    initial={false}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </div>
               ))}
             </div>
@@ -583,9 +718,7 @@ export default function RecipeDetail() {
                 >
                   <div className="flex items-start gap-4">
                     <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm font-body ${
-                      i <= activeStep
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-muted-foreground"
+                      i <= activeStep ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                     }`}>
                       {i < activeStep ? <Check className="h-4 w-4" /> : i + 1}
                     </div>
@@ -595,32 +728,25 @@ export default function RecipeDetail() {
                         {lang === "en" ? step.instruction : step.instructionAm}
                       </p>
 
-                      {/* Step-specific tip */}
                       {step.tip && i === activeStep && (
-                        <div className="mt-3 flex items-start gap-2 p-2 rounded-lg bg-spice-gold/10">
+                        <motion.div
+                          initial={{ opacity: 0, y: -5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="mt-3 flex items-start gap-2 p-2 rounded-lg bg-spice-gold/10"
+                        >
                           <Lightbulb className="h-4 w-4 text-spice-gold flex-shrink-0 mt-0.5" />
                           <span className="text-xs text-muted-foreground font-body">
                             {lang === "en" ? step.tip : (step.tipAm || step.tip)}
                           </span>
-                        </div>
+                        </motion.div>
                       )}
 
                       {step.timer && i === activeStep && (
-                        <AnimatePresence>
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                          >
-                            <StepTimer seconds={step.timer} stepIndex={i} />
-                          </motion.div>
-                        </AnimatePresence>
+                        <StepTimer seconds={step.timer} stepIndex={i} />
                       )}
                     </div>
 
-                    {i === activeStep && (
-                      <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                    )}
+                    {i === activeStep && <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-1" />}
                   </div>
                 </motion.div>
               ))}
@@ -628,18 +754,10 @@ export default function RecipeDetail() {
 
             {/* Navigation */}
             <div className="flex justify-between mt-8">
-              <Button
-                variant="outline" className="rounded-full"
-                disabled={activeStep === 0}
-                onClick={() => setActiveStep(activeStep - 1)}
-              >
+              <Button variant="outline" className="rounded-full" disabled={activeStep === 0} onClick={() => setActiveStep(activeStep - 1)}>
                 ← {lang === "en" ? "Previous" : "ቀዳሚ"}
               </Button>
-              <Button
-                className="rounded-full"
-                disabled={activeStep === recipe.steps.length - 1}
-                onClick={() => setActiveStep(activeStep + 1)}
-              >
+              <Button className="rounded-full" disabled={activeStep === recipe.steps.length - 1} onClick={() => setActiveStep(activeStep + 1)}>
                 {lang === "en" ? "Next" : "ቀጣይ"} →
               </Button>
             </div>
