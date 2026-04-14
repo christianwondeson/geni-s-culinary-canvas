@@ -480,7 +480,7 @@ export default function RecipeDetail() {
   const recipe = slug ? allRecipes[slug] : undefined;
   const [activeStep, setActiveStep] = useState(0);
   const [checkedIngredients, setCheckedIngredients] = useState<Set<number>>(new Set());
-  const [lang, setLang] = useState<"en" | "am">("en");
+  const { lang } = useLanguage();
   const [liked, setLiked] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
@@ -563,10 +563,9 @@ export default function RecipeDetail() {
               {lang === "en" ? "Watch Video" : "ቪዲዮ ይመልከቱ"}
             </Button>
           </div>
-          <Button variant="outline" size="sm" className="rounded-full gap-1.5" onClick={() => setLang(lang === "en" ? "am" : "en")}>
-            <Globe className="h-4 w-4" />
-            {lang === "en" ? "አማርኛ" : "English"}
-          </Button>
+          <span className="text-xs text-muted-foreground font-body">
+            {lang === "en" ? "Use navbar globe to switch language" : "ቋንቋ ለመቀየር የአሰሳ ዓለም አዶ ይጠቀሙ"}
+          </span>
         </div>
       </div>
 
