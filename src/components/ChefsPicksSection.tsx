@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChefHat, ArrowRight, Globe } from "lucide-react";
+import { ChefHat, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import recipeKitfo from "@/assets/recipe-kitfo.jpg";
 import recipeTibs from "@/assets/recipe-tibs.jpg";
 import recipeDoro from "@/assets/recipe-doro-wot.jpg";
@@ -19,7 +19,7 @@ const t = {
 };
 
 export function ChefsPicksSection() {
-  const [lang, setLang] = useState<"en" | "am">("en");
+  const { lang } = useLanguage();
   const l = t[lang];
 
   return (
@@ -35,9 +35,6 @@ export function ChefsPicksSection() {
             <div className="flex items-center gap-2 mb-3">
               <ChefHat className="h-5 w-5 text-spice-gold" />
               <span className="text-spice-gold font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
-              <button onClick={() => setLang(lang === "en" ? "am" : "en")} className="ml-4 text-sm text-primary hover:underline font-body flex items-center gap-1">
-                <Globe className="h-4 w-4" /> {lang === "en" ? "አማርኛ" : "English"}
-              </button>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
               {l.title} <span className="text-spice-gold">{l.highlight}</span>

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Heart, Globe } from "lucide-react";
+import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const t = {
   en: {
@@ -31,7 +31,7 @@ const recipeLinksData = [
 ];
 
 export function Footer() {
-  const [lang, setLang] = useState<"en" | "am">("en");
+  const { lang } = useLanguage();
   const l = t[lang];
 
   const exploreLinks = [
@@ -57,9 +57,6 @@ export function Footer() {
               Geni's <span className="text-primary">Recipe</span>
             </Link>
             <p className="text-muted-foreground text-sm mt-3 leading-relaxed font-body">{l.tagline}</p>
-            <button onClick={() => setLang(lang === "en" ? "am" : "en")} className="mt-3 text-sm text-primary hover:underline font-body flex items-center gap-1">
-              <Globe className="h-4 w-4" /> {lang === "en" ? "አማርኛ" : "English"}
-            </button>
           </div>
 
           <div>
