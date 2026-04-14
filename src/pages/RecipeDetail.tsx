@@ -35,7 +35,7 @@ const allRecipes: Record<string, {
     category: "Traditional", servings: 6,
     description: "A rich, spicy chicken stew slow-cooked with berbere spice, served on injera for special occasions.",
     descriptionAm: "በበርበሬ ቅመም ቀስ ብሎ የተበሰለ ጣፋጭ የዶሮ ወጥ፣ በልዩ አጋጣሚዎች በእንጀራ ላይ ይቀርባል።",
-    videoUrl: "https://www.youtube.com/embed/yFlaRGKaBgo?rel=0",
+    videoUrl: "https://www.youtube.com/embed/HoAzaDY_4-g?rel=0",
     tips: [
       "Use a heavy-bottomed pot (preferably cast iron) for even heat distribution",
       "Never add oil or water when caramelizing onions — they release their own moisture",
@@ -80,7 +80,7 @@ const allRecipes: Record<string, {
     category: "Chef's Special", servings: 4,
     description: "Ethiopia's celebrated raw (or lightly cooked) beef delicacy, seasoned with mitmita spice and niter kibbeh.",
     descriptionAm: "በሚጥሚጣና ንጥር ቅቤ የተቀመመ ታዋቂ የኢትዮጵያ ጥሬ ስጋ ምግብ።",
-    videoUrl: "https://www.youtube.com/embed/dQG-IasjsFo?rel=0",
+    videoUrl: "https://www.youtube.com/embed/VcxDN3bkuy0?rel=0",
     tips: [
       "Always use the freshest, highest-quality lean beef you can find",
       "The beef should be minced by hand for the best texture",
@@ -116,7 +116,7 @@ const allRecipes: Record<string, {
     category: "Vegan", servings: 4,
     description: "A smooth, comforting chickpea flour stew — the most beloved everyday dish across Ethiopia.",
     descriptionAm: "ለስላሳና ጣፋጭ የሽሮ ወጥ። በኢትዮጵያ ውስጥ በጣም ተወዳጅ የዕለት ተዕለት ምግብ ነው።",
-    videoUrl: "https://www.youtube.com/embed/C0mPfcSgJP8?rel=0",
+    videoUrl: "https://www.youtube.com/embed/7FrIkiLSHYw?rel=0",
     tips: [
       "The most important step is cooking the onions long enough",
       "Always add shiro powder gradually while stirring to prevent lumps",
@@ -263,7 +263,7 @@ const allRecipes: Record<string, {
     category: "International", servings: 4,
     description: "Classic Italian pasta with a creamy egg and cheese sauce, crispy guanciale (or pancetta), and freshly cracked black pepper. A simple yet luxurious dish.",
     descriptionAm: "ክላሲክ የጣሊያን ፓስታ ከክሬም እንቁላልና ቺዝ ሶስ ጋር። ቀላል ግን የሚያማልል ምግብ።",
-    videoUrl: "https://www.youtube.com/embed/D_2DBLAt57c?rel=0",
+    videoUrl: "https://www.youtube.com/embed/MxFyrUUYn7w?rel=0",
     tips: [
       "Use guanciale (cured pork cheek) for the most authentic flavor — pancetta or thick-cut bacon works too",
       "Never add cream — traditional carbonara gets its creaminess from eggs and cheese only",
