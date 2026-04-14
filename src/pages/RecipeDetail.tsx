@@ -227,7 +227,7 @@ const allRecipes: Record<string, {
     category: "Beverage", servings: 6,
     description: "The sacred Ethiopian coffee ceremony — roasting, grinding, and brewing that brings people together.",
     descriptionAm: "ቅዱስ የኢትዮጵያ ቡና ሥነ ሥርዓት — ሰዎችን የሚያገናኝ ባህላዊ ሥነ ሥርዓት።",
-    videoUrl: "https://www.youtube.com/embed/j5RoFVDuYr8?rel=0",
+    videoUrl: "https://www.youtube.com/embed/YOpLGLAL1zg?rel=0",
     tips: [
       "The ceremony has 3 rounds: Abol (strongest), Tona (second), Bereka (mildest)",
       "Burn frankincense (etan) for authentic atmosphere",
