@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { 
   ArrowLeft, Clock, Flame, Star, Heart, Users, Play, Pause, 
-  RotateCcw, Check, ChevronRight, Globe, Youtube, Lightbulb, AlertTriangle
+  RotateCcw, Check, ChevronRight, Youtube, Lightbulb, AlertTriangle
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
