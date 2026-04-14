@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Leaf, Globe } from "lucide-react";
+import { Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import recipeBeyaynetu from "@/assets/recipe-beyaynetu.jpg";
 import recipeCoffee from "@/assets/recipe-coffee.jpg";
 import recipeDoro from "@/assets/recipe-doro-wot.jpg";
@@ -36,7 +36,7 @@ const t = {
 };
 
 export function TraditionalSection() {
-  const [lang, setLang] = useState<"en" | "am">("en");
+  const { lang } = useLanguage();
   const l = t[lang];
 
   return (
@@ -51,9 +51,6 @@ export function TraditionalSection() {
           <div className="flex items-center justify-center gap-2 mb-3">
             <Leaf className="h-5 w-5 text-secondary" />
             <span className="text-secondary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
-            <button onClick={() => setLang(lang === "en" ? "am" : "en")} className="ml-4 text-sm text-primary hover:underline font-body flex items-center gap-1">
-              <Globe className="h-4 w-4" /> {lang === "en" ? "አማርኛ" : "English"}
-            </button>
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             {l.title} <span className="text-secondary">{l.highlight}</span>

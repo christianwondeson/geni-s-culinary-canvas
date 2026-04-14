@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff, Mail, Lock, User, ArrowLeft, Chrome, Globe } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, User, ArrowLeft, Chrome } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-food.jpg";
 
 type AuthMode = "signin" | "signup" | "forgot";
@@ -52,7 +53,7 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [lang, setLang] = useState<"en" | "am">("en");
+  const { lang } = useLanguage();
   const l = t[lang];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -82,9 +83,6 @@ export default function Auth() {
             <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-body text-sm">
               <ArrowLeft className="h-4 w-4" /> {l.back}
             </Link>
-            <button onClick={() => setLang(lang === "en" ? "am" : "en")} className="text-sm text-primary hover:underline font-body flex items-center gap-1">
-              <Globe className="h-4 w-4" /> {lang === "en" ? "አማርኛ" : "English"}
-            </button>
           </div>
 
           <AnimatePresence mode="wait">

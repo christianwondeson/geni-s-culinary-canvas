@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, ChevronDown, Clock, Flame, Star, Globe } from "lucide-react";
+import { Search, ChevronDown, Clock, Flame, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-food.jpg";
 
 const t = {
@@ -42,7 +42,7 @@ const floatingItems = [
 ];
 
 export function HeroSection() {
-  const [lang, setLang] = useState<"en" | "am">("en");
+  const { lang } = useLanguage();
   const l = t[lang];
 
   return (
@@ -63,14 +63,6 @@ export function HeroSection() {
           {item.emoji}
         </motion.div>
       ))}
-
-      {/* Language Toggle */}
-      <button
-        onClick={() => setLang(lang === "en" ? "am" : "en")}
-        className="absolute top-24 right-6 z-20 text-sm text-cream/70 hover:text-cream transition-colors font-body flex items-center gap-1 bg-cream/10 backdrop-blur-sm px-3 py-1.5 rounded-full"
-      >
-        <Globe className="h-4 w-4" /> {lang === "en" ? "አማርኛ" : "English"}
-      </button>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-24">
         <div className="max-w-3xl">

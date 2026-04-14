@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Globe } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { RecipeCard } from "./RecipeCard";
+import { useLanguage } from "@/contexts/LanguageContext";
 import recipeDoro from "@/assets/recipe-doro-wot.jpg";
 import recipeKitfo from "@/assets/recipe-kitfo.jpg";
 import recipeShiro from "@/assets/recipe-shiro.jpg";
@@ -31,7 +32,7 @@ const internationalRecipes = [
 ];
 
 export function TrendingSection() {
-  const [lang, setLang] = useState<"en" | "am">("en");
+  const { lang } = useLanguage();
   const [tab, setTab] = useState<"ethiopian" | "international">("ethiopian");
   const l = t[lang];
 
@@ -48,9 +49,6 @@ export function TrendingSection() {
             <TrendingUp className="h-6 w-6 text-primary" />
             <span className="text-primary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
           </motion.div>
-          <button onClick={() => setLang(lang === "en" ? "am" : "en")} className="text-sm text-primary hover:underline font-body flex items-center gap-1">
-            <Globe className="h-4 w-4" /> {lang === "en" ? "አማርኛ" : "English"}
-          </button>
         </div>
 
         <motion.h2
@@ -63,7 +61,6 @@ export function TrendingSection() {
           {l.title} <span className="text-primary">{l.highlight}</span>
         </motion.h2>
 
-        {/* Tabs */}
         <div className="flex gap-2 mb-8">
           {(["ethiopian", "international"] as const).map((t) => (
             <button
