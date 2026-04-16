@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollReveal } from "./AnimatedText";
 import recipeBeyaynetu from "@/assets/recipe-beyaynetu.jpg";
 import recipeCoffee from "@/assets/recipe-coffee.jpg";
 import recipeDoro from "@/assets/recipe-doro-wot.jpg";
@@ -35,58 +37,97 @@ const t = {
   am: { badge: "ቅርስ", title: "ባህላዊ የኢትዮጵያ", highlight: "ምግቦች", desc: "ከዘመናት የምግብ ባህል ውስጥ ሥር የሰደዱ ትክክለኛ ጣዕም ያላቸው ምግቦች ወደ ኩሽናዎ።", viewRecipe: "ሙሉ ምግብ ይመልከቱ →" },
 };
 
+function ParallaxImage({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+  return (
+    <div ref={ref} className="relative rounded-3xl overflow-hidden h-72 lg:h-96">
+      <motion.img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className="w-full h-[120%] object-cover absolute top-0"
+        style={{ y }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-coffee/30 to-transparent" />
+      {/* Hover shine effect */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-tr from-transparent via-cream/10 to-transparent"
+        initial={{ x: "-100%" }}
+        whileHover={{ x: "100%" }}
+        transition={{ duration: 0.8 }}
+      />
+    </div>
+  );
+}
+
 export function TraditionalSection() {
   const { lang } = useLanguage();
   const l = t[lang];
 
   return (
-    <section id="traditional" className="py-24 bg-muted/50">
-      <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+    <section id="traditional" className="py-28 bg-muted/40 relative overflow-hidden">
+      {/* Decorative orb */}
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+      <div className="container mx-auto px-4 lg:px-8 relative">
+        <ScrollReveal className="text-center mb-20">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <Leaf className="h-5 w-5 text-secondary" />
+            <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+              <Leaf className="h-5 w-5 text-secondary" />
+            </motion.div>
             <span className="text-secondary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-4">
             {l.title} <span className="text-secondary">{l.highlight}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-body">{l.desc}</p>
-        </motion.div>
+        </ScrollReveal>
 
-        <div className="space-y-20">
+        <div className="space-y-24">
           {dishes.map((dish, i) => (
-            <motion.div
+            <div
               key={dish.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7 }}
-              className={`flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-10 items-center`}
+              className={`flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 items-center`}
             >
-              <div className="flex-1 w-full">
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }} className="relative rounded-3xl overflow-hidden group">
-                  <img src={dish.image} alt={dish.title} loading="lazy" className="w-full h-72 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-coffee/40 to-transparent" />
-                </motion.div>
-              </div>
-              <div className="flex-1">
-                <span className="text-primary font-medium text-sm font-body">{lang === "en" ? dish.subtitle : dish.subtitleAm}</span>
-                <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
+              <ScrollReveal className="flex-1 w-full" direction={i % 2 === 0 ? "left" : "right"}>
+                <ParallaxImage src={dish.image} alt={dish.title} />
+              </ScrollReveal>
+
+              <ScrollReveal className="flex-1" delay={0.2} direction={i % 2 === 0 ? "right" : "left"}>
+                <motion.span
+                  className="text-primary font-medium text-sm font-body inline-block"
+                  whileInView={{ opacity: [0, 1], x: [-20, 0] }}
+                  viewport={{ once: true }}
+                >
+                  {lang === "en" ? dish.subtitle : dish.subtitleAm}
+                </motion.span>
+                <h3 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-2 mb-5">
                   {lang === "en" ? dish.title : dish.titleAm}
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-body">
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8 font-body">
                   {lang === "en" ? dish.description : dish.descriptionAm}
                 </p>
-                <Link to={`/recipe/${dish.slug}`} className="font-medium text-primary hover:text-primary/80 transition-colors underline underline-offset-4 font-body">
-                  {l.viewRecipe}
+                <Link to={`/recipe/${dish.slug}`}>
+                  <motion.span
+                    className="inline-flex items-center gap-2 font-medium text-primary font-body group"
+                    whileHover={{ x: 6 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    {l.viewRecipe}
+                    <motion.span
+                      className="inline-block"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </motion.span>
                 </Link>
-              </div>
-            </motion.div>
+              </ScrollReveal>
+            </div>
           ))}
         </div>
       </div>
