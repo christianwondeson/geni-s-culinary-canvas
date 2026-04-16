@@ -1,6 +1,8 @@
-import { Heart } from "lucide-react";
+import { motion } from "framer-motion";
+import { Heart, ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollReveal } from "./AnimatedText";
 
 const t = {
   en: {
@@ -34,6 +36,8 @@ export function Footer() {
   const { lang } = useLanguage();
   const l = t[lang];
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   const exploreLinks = [
     { label: l.allRecipes, href: "/#recipes" },
     { label: l.traditional, href: "/#traditional" },
@@ -49,57 +53,74 @@ export function Footer() {
   ];
 
   return (
-    <footer className="py-16 border-t border-border bg-muted/30">
+    <footer className="pt-20 pb-10 border-t border-border bg-muted/20 relative">
+      {/* Back to top */}
+      <motion.button
+        onClick={scrollToTop}
+        whileHover={{ scale: 1.1, y: -3 }}
+        whileTap={{ scale: 0.9 }}
+        className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg shadow-primary/25"
+      >
+        <ArrowUp className="h-5 w-5" />
+      </motion.button>
+
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-          <div className="md:col-span-1">
-            <Link to="/" className="font-display text-2xl font-bold text-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
+          <ScrollReveal className="md:col-span-1">
+            <Link to="/" className="font-display text-2xl font-bold text-foreground inline-block">
               Geni's <span className="text-primary">Recipe</span>
             </Link>
-            <p className="text-muted-foreground text-sm mt-3 leading-relaxed font-body">{l.tagline}</p>
-          </div>
+            <p className="text-muted-foreground text-sm mt-4 leading-relaxed font-body">{l.tagline}</p>
+          </ScrollReveal>
 
-          <div>
+          <ScrollReveal delay={0.1}>
             <h4 className="font-display font-semibold text-foreground mb-4">{l.recipes}</h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {recipeLinksData.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body">
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">
                     {lang === "en" ? link.en : link.am}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
 
-          <div>
+          <ScrollReveal delay={0.2}>
             <h4 className="font-display font-semibold text-foreground mb-4">{l.explore}</h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {exploreLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body">{link.label}</Link>
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">{link.label}</Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
 
-          <div>
+          <ScrollReveal delay={0.3}>
             <h4 className="font-display font-semibold text-foreground mb-4">{l.support}</h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body">{link.label}</Link>
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">{link.label}</Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border">
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/50">
           <p className="text-sm text-muted-foreground font-body">{l.rights}</p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1 mt-2 md:mt-0 font-body">
-            {l.madeWith} <Heart className="h-3 w-3 text-primary fill-primary" /> {l.inEthiopia}
-          </p>
+          <motion.p
+            className="text-sm text-muted-foreground flex items-center gap-1.5 mt-2 md:mt-0 font-body"
+            whileHover={{ scale: 1.05 }}
+          >
+            {l.madeWith}
+            <motion.span animate={{ scale: [1, 1.3, 1] }} transition={{ duration: 1, repeat: Infinity }}>
+              <Heart className="h-3.5 w-3.5 text-primary fill-primary" />
+            </motion.span>
+            {l.inEthiopia}
+          </motion.p>
         </div>
       </div>
     </footer>

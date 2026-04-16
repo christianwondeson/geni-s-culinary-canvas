@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { Check, Crown, Sparkles, Zap } from "lucide-react";
+import { Check, Crown, Sparkles, Zap, Gem } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollReveal } from "./AnimatedText";
 
 const t = {
   en: {
@@ -45,65 +46,88 @@ export function PricingSection() {
     { name: l.freeName, price: l.freePrice, period: l.freePeriod, description: l.freeDesc, features: l.freeFeatures, cta: l.freeCta, ctaLink: "/subscribe?plan=free", featured: false, icon: Sparkles },
     { name: l.basicName, price: l.basicPrice, period: l.basicPeriod, description: l.basicDesc, features: l.basicFeatures, cta: l.basicCta, ctaLink: "/subscribe?plan=basic", featured: false, icon: Zap },
     { name: l.premName, price: l.premPrice, period: l.premPeriod, description: l.premDesc, features: l.premFeatures, cta: l.premCta, ctaLink: "/subscribe?plan=premium", featured: true, icon: Crown },
-    { name: l.proName, price: l.proPrice, period: l.proPeriod, description: l.proDesc, features: l.proFeatures, cta: l.proCta, ctaLink: "/subscribe?plan=pro", featured: false, icon: Crown },
+    { name: l.proName, price: l.proPrice, period: l.proPeriod, description: l.proDesc, features: l.proFeatures, cta: l.proCta, ctaLink: "/subscribe?plan=pro", featured: false, icon: Gem },
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4 lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+    <section id="pricing" className="py-28 bg-muted/30 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
+
+      <div className="container mx-auto px-4 lg:px-8 relative">
+        <ScrollReveal className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <Sparkles className="h-5 w-5 text-spice-gold" />
+            <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+              <Sparkles className="h-5 w-5 text-spice-gold" />
+            </motion.div>
             <span className="text-spice-gold font-semibold text-sm uppercase tracking-wider">{l.badge}</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-4">
             {l.title} <span className="text-primary">{l.highlight}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-md mx-auto">{l.desc}</p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -4 }}
-              className={`relative rounded-3xl p-7 ${plan.featured ? "bg-foreground text-background shadow-2xl scale-[1.02] lg:scale-105" : "glass-card"}`}
-            >
-              {plan.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1 px-4 py-1.5 rounded-full bg-spice-gold text-accent-foreground text-xs font-bold">
-                  <Crown className="h-3 w-3" /> {l.popular}
-                </div>
-              )}
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${plan.featured ? "bg-spice-gold/20" : "bg-primary/10"}`}>
-                <plan.icon className={`h-5 w-5 ${plan.featured ? "text-spice-gold" : "text-primary"}`} />
-              </div>
-              <h3 className={`font-display text-xl font-bold mb-1 ${plan.featured ? "text-background" : "text-foreground"}`}>{plan.name}</h3>
-              <p className={`text-sm mb-5 ${plan.featured ? "text-background/60" : "text-muted-foreground"}`}>{plan.description}</p>
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className={`text-4xl font-display font-bold ${plan.featured ? "text-background" : "text-foreground"}`}>{plan.price}</span>
-                <span className={`text-sm ${plan.featured ? "text-background/60" : "text-muted-foreground"}`}>{plan.period}</span>
-              </div>
-              <ul className="space-y-2.5 mb-6">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5">
-                    <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${plan.featured ? "text-spice-gold" : "text-primary"}`} />
-                    <span className={`text-sm ${plan.featured ? "text-background/80" : "text-muted-foreground"}`}>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link to={plan.ctaLink}>
-                <Button
-                  className={`w-full rounded-2xl h-11 font-semibold text-sm ${plan.featured ? "bg-spice-gold text-accent-foreground hover:bg-spice-gold/90" : ""}`}
-                  variant={plan.featured ? "default" : "outline"}
+            <ScrollReveal key={plan.name} delay={i * 0.1}>
+              <motion.div
+                whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+                className={`relative rounded-3xl p-7 h-full ${
+                  plan.featured
+                    ? "bg-foreground text-background shadow-2xl shadow-foreground/10 scale-[1.02] lg:scale-105 ring-2 ring-spice-gold/30"
+                    : "glass-card"
+                }`}
+              >
+                {plan.featured && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1 px-4 py-1.5 rounded-full bg-spice-gold text-accent-foreground text-xs font-bold shadow-lg shadow-spice-gold/30"
+                  >
+                    <Crown className="h-3 w-3" /> {l.popular}
+                  </motion.div>
+                )}
+                <motion.div
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                  className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${plan.featured ? "bg-spice-gold/20" : "bg-primary/10"}`}
                 >
-                  {plan.cta}
-                </Button>
-              </Link>
-            </motion.div>
+                  <plan.icon className={`h-5 w-5 ${plan.featured ? "text-spice-gold" : "text-primary"}`} />
+                </motion.div>
+                <h3 className={`font-display text-xl font-bold mb-1 ${plan.featured ? "text-background" : "text-foreground"}`}>{plan.name}</h3>
+                <p className={`text-sm mb-5 ${plan.featured ? "text-background/60" : "text-muted-foreground"}`}>{plan.description}</p>
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className={`text-4xl font-display font-bold ${plan.featured ? "text-background" : "text-foreground"}`}>{plan.price}</span>
+                  <span className={`text-sm ${plan.featured ? "text-background/60" : "text-muted-foreground"}`}>{plan.period}</span>
+                </div>
+                <ul className="space-y-2.5 mb-6">
+                  {plan.features.map((f, fi) => (
+                    <motion.li
+                      key={f}
+                      className="flex items-start gap-2.5"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + fi * 0.05 }}
+                    >
+                      <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${plan.featured ? "text-spice-gold" : "text-primary"}`} />
+                      <span className={`text-sm ${plan.featured ? "text-background/80" : "text-muted-foreground"}`}>{f}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+                <Link to={plan.ctaLink}>
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                    <Button
+                      className={`w-full rounded-2xl h-12 font-semibold text-sm ${plan.featured ? "bg-spice-gold text-accent-foreground hover:bg-spice-gold/90 shadow-lg shadow-spice-gold/20" : ""}`}
+                      variant={plan.featured ? "default" : "outline"}
+                    >
+                      {plan.cta}
+                    </Button>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { TrendingUp } from "lucide-react";
 import { RecipeCard } from "./RecipeCard";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ScrollReveal } from "./AnimatedText";
 import recipeDoro from "@/assets/recipe-doro-wot.jpg";
 import recipeKitfo from "@/assets/recipe-kitfo.jpg";
 import recipeShiro from "@/assets/recipe-shiro.jpg";
@@ -25,10 +26,10 @@ const ethiopianRecipes = [
 ];
 
 const internationalRecipes = [
-  { title: "Pasta Carbonara", image: recipePasta, time: "25m", difficulty: "Easy" as const, rating: 4.7, category: "International", slug: "pasta-carbonara" },
-  { title: "Classic Smash Burger", image: recipeBurger, time: "20m", difficulty: "Easy" as const, rating: 4.8, category: "International", slug: "classic-burger" },
-  { title: "Chicken Teriyaki", image: recipeTeriyaki, time: "30m", difficulty: "Easy" as const, rating: 4.6, category: "International", slug: "chicken-teriyaki" },
-  { title: "Mexican Chicken Tacos", image: recipeTacos, time: "35m", difficulty: "Easy" as const, rating: 4.7, category: "International", slug: "chicken-tacos" },
+  { title: "Pasta Carbonara", image: recipePasta, time: "25m", difficulty: "Easy" as const, rating: 4.7, category: "Italian", slug: "pasta-carbonara" },
+  { title: "Classic Smash Burger", image: recipeBurger, time: "20m", difficulty: "Easy" as const, rating: 4.8, category: "American", slug: "classic-burger" },
+  { title: "Chicken Teriyaki", image: recipeTeriyaki, time: "30m", difficulty: "Easy" as const, rating: 4.6, category: "Japanese", slug: "chicken-teriyaki" },
+  { title: "Mexican Chicken Tacos", image: recipeTacos, time: "35m", difficulty: "Easy" as const, rating: 4.7, category: "Mexican", slug: "chicken-tacos" },
 ];
 
 export function TrendingSection() {
@@ -37,57 +38,71 @@ export function TrendingSection() {
   const l = t[lang];
 
   return (
-    <section id="recipes" className="py-24 relative">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between mb-3">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-3"
-          >
-            <TrendingUp className="h-6 w-6 text-primary" />
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
-          </motion.div>
-        </div>
+    <section id="recipes" className="py-28 relative overflow-hidden">
+      {/* Subtle gradient orb */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl font-bold text-foreground mb-8"
-        >
-          {l.title} <span className="text-primary">{l.highlight}</span>
-        </motion.h2>
-
-        <div className="flex gap-2 mb-8">
-          {(["ethiopian", "international"] as const).map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium font-body transition-all ${
-                tab === t
-                  ? "bg-primary text-primary-foreground shadow-lg"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
-              }`}
+      <div className="container mx-auto px-4 lg:px-8 relative">
+        <ScrollReveal>
+          <div className="flex items-center gap-3 mb-3">
+            <motion.div
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
             >
-              {t === "ethiopian" ? l.tab1 : l.tab2}
-            </button>
-          ))}
-        </div>
+              <TrendingUp className="h-6 w-6 text-primary" />
+            </motion.div>
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
+          </div>
+        </ScrollReveal>
 
-        <motion.div
-          key={tab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {(tab === "ethiopian" ? ethiopianRecipes : internationalRecipes).map((recipe, i) => (
-            <RecipeCard key={recipe.title} {...recipe} index={i} />
-          ))}
-        </motion.div>
+        <ScrollReveal delay={0.1}>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-10">
+            {l.title} <span className="text-primary">{l.highlight}</span>
+          </h2>
+        </ScrollReveal>
+
+        {/* Tabs with animated indicator */}
+        <ScrollReveal delay={0.2}>
+          <div className="flex gap-2 mb-10 relative">
+            {(["ethiopian", "international"] as const).map((t) => (
+              <motion.button
+                key={t}
+                onClick={() => setTab(t)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className={`relative px-6 py-3 rounded-full text-sm font-medium font-body transition-colors duration-300 ${
+                  tab === t
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {tab === t && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/25"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{t === "ethiopian" ? l.tab1 : l.tab2}</span>
+              </motion.button>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {(tab === "ethiopian" ? ethiopianRecipes : internationalRecipes).map((recipe, i) => (
+              <RecipeCard key={recipe.title} {...recipe} index={i} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
