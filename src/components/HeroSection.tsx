@@ -2,8 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Search, ChevronDown, Clock, Flame, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import heroImage from "@/assets/hero-food.jpg";
+import { SearchModal } from "./SearchModal";
 
 const t = {
   en: {
