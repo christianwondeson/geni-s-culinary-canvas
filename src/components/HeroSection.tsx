@@ -69,6 +69,7 @@ export function HeroSection() {
   };
 
   return (
+    <>
     <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax Background */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
