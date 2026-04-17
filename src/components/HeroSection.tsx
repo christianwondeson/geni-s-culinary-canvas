@@ -232,5 +232,7 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
     </section>
+    <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} initialQuery={searchQuery} />
+    </>
   );
 }
