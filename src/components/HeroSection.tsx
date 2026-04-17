@@ -2,8 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Search, ChevronDown, Clock, Flame, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import heroImage from "@/assets/hero-food.jpg";
+import { SearchModal } from "./SearchModal";
 
 const t = {
   en: {
@@ -55,12 +56,20 @@ export function HeroSection() {
   const { lang } = useLanguage();
   const l = t[lang];
   const ref = useRef<HTMLDivElement>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const handleExplore = () => {
+    const target = document.getElementById("recipes") || document.getElementById("trending");
+    target?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
+    <>
     <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax Background */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
@@ -149,26 +158,31 @@ export function HeroSection() {
           </motion.p>
 
           {/* Search + CTA */}
-          <motion.div
+          <motion.form
+            onSubmit={(e) => { e.preventDefault(); setSearchOpen(true); }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="flex flex-col sm:flex-row gap-3 max-w-xl"
           >
             <motion.div className="flex-1 relative" whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 400 }}>
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setSearchOpen(true)}
                 placeholder={l.search}
                 className="w-full pl-12 pr-4 py-4 rounded-2xl bg-cream/95 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 font-body shadow-xl shadow-coffee/20 transition-shadow focus:shadow-2xl focus:shadow-primary/10"
               />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <Button size="lg" className="rounded-2xl px-8 py-4 h-auto text-base font-semibold shadow-xl shadow-primary/30">
+              <Button type="button" onClick={handleExplore} size="lg" className="rounded-2xl px-8 py-4 h-auto text-base font-semibold shadow-xl shadow-primary/30">
                 {l.explore}
               </Button>
             </motion.div>
-          </motion.div>
+          </motion.form>
+
 
           {/* Stats with staggered reveal */}
           <motion.div
@@ -219,5 +233,7 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
     </section>
+    <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} initialQuery={searchQuery} />
+    </>
   );
 }
