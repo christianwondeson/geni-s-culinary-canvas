@@ -20,19 +20,20 @@ const allRecipes = [
 interface SearchModalProps {
   open: boolean;
   onClose: () => void;
+  initialQuery?: string;
 }
 
-export function SearchModal({ open, onClose }: SearchModalProps) {
+export function SearchModal({ open, onClose, initialQuery = "" }: SearchModalProps) {
   const { lang } = useLanguage();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (open) {
       setTimeout(() => inputRef.current?.focus(), 100);
-      setQuery("");
+      setQuery(initialQuery);
     }
-  }, [open]);
+  }, [open, initialQuery]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
