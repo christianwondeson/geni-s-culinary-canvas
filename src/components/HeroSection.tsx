@@ -56,10 +56,17 @@ export function HeroSection() {
   const { lang } = useLanguage();
   const l = t[lang];
   const ref = useRef<HTMLDivElement>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const handleExplore = () => {
+    const target = document.getElementById("recipes") || document.getElementById("trending");
+    target?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden">
