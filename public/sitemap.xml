@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
+  <url><loc>https://genis-recipe.lovable.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/auth</loc><priority>0.6</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/help</loc><priority>0.5</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/privacy</loc><priority>0.3</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/terms</loc><priority>0.3</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/doro-wot</loc><priority>0.9</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/kitfo</loc><priority>0.9</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/shiro-wot</loc><priority>0.9</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/derek-tibs</loc><priority>0.9</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/beyaynetu</loc><priority>0.9</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/coffee-ceremony</loc><priority>0.9</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/pasta-carbonara</loc><priority>0.8</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/classic-burger</loc><priority>0.8</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/chicken-teriyaki</loc><priority>0.8</priority></url>
+  <url><loc>https://genis-recipe.lovable.app/recipe/chicken-tacos</loc><priority>0.8</priority></url>
+</urlset>

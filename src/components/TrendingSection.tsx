@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TrendingUp } from "lucide-react";
 import { RecipeCard } from "./RecipeCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ScrollReveal } from "./AnimatedText";
@@ -14,8 +13,8 @@ import recipeTeriyaki from "@/assets/recipe-teriyaki.jpg";
 import recipeTacos from "@/assets/recipe-tacos.jpg";
 
 const t = {
-  en: { badge: "Trending Now", title: "Most Loved", highlight: "Recipes", tab1: "Ethiopian", tab2: "International" },
-  am: { badge: "አሁን ተወዳጅ", title: "በጣም ተወዳጅ", highlight: "ምግቦች", tab1: "ኢትዮጵያ", tab2: "ዓለም አቀፍ" },
+  en: { kicker: "Chapter One — The Most Loved", title: "Recipes the community returns to", desc: "A rotating shortlist, refreshed weekly from what readers actually cook in their own kitchens.", tab1: "Ethiopian", tab2: "International" },
+  am: { kicker: "ምዕራፍ ፩ — በጣም ተወዳጅ", title: "ማህበረሰቡ ደጋግሞ የሚያበስላቸው ምግቦች", desc: "በሳምንት የሚዘምን አጭር ዝርዝር።", tab1: "ኢትዮጵያ", tab2: "ዓለም አቀፍ" },
 };
 
 const ethiopianRecipes = [
@@ -38,53 +37,44 @@ export function TrendingSection() {
   const l = t[lang];
 
   return (
-    <section id="recipes" className="py-28 relative overflow-hidden">
-      {/* Subtle gradient orb */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-
+    <section id="recipes" className="py-24 lg:py-32 relative border-t border-foreground/10">
       <div className="container mx-auto px-4 lg:px-8 relative">
         <ScrollReveal>
-          <div className="flex items-center gap-3 mb-3">
-            <motion.div
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <TrendingUp className="h-6 w-6 text-primary" />
-            </motion.div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
-          </div>
+          <div className="kicker text-primary mb-5">{l.kicker}</div>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-10">
-            {l.title} <span className="text-primary">{l.highlight}</span>
-          </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-6">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground max-w-2xl leading-[1.05]">
+              {l.title}
+            </h2>
+            <p className="text-muted-foreground font-body max-w-sm md:text-right text-sm">{l.desc}</p>
+          </div>
         </ScrollReveal>
 
-        {/* Tabs with animated indicator */}
+        <ScrollReveal delay={0.15}>
+          <div className="ink-divider mb-12" />
+        </ScrollReveal>
+
         <ScrollReveal delay={0.2}>
-          <div className="flex gap-2 mb-10 relative">
-            {(["ethiopian", "international"] as const).map((t) => (
-              <motion.button
-                key={t}
-                onClick={() => setTab(t)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className={`relative px-6 py-3 rounded-full text-sm font-medium font-body transition-colors duration-300 ${
-                  tab === t
-                    ? "text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+          <div className="flex gap-1 mb-12 border-b border-foreground/15">
+            {(["ethiopian", "international"] as const).map((tab_) => (
+              <button
+                key={tab_}
+                onClick={() => setTab(tab_)}
+                className={`relative px-6 py-3 text-sm font-medium font-body uppercase tracking-wider transition-colors ${
+                  tab === tab_ ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {tab === t && (
+                {tab === tab_ && (
                   <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/25"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    layoutId="activeTabUnderline"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary"
+                    transition={{ type: "spring", stiffness: 400, damping: 35 }}
                   />
                 )}
-                <span className="relative z-10">{t === "ethiopian" ? l.tab1 : l.tab2}</span>
-              </motion.button>
+                {tab_ === "ethiopian" ? l.tab1 : l.tab2}
+              </button>
             ))}
           </div>
         </ScrollReveal>
@@ -92,11 +82,11 @@ export function TrendingSection() {
         <AnimatePresence mode="wait">
           <motion.div
             key={tab}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10"
           >
             {(tab === "ethiopian" ? ethiopianRecipes : internationalRecipes).map((recipe, i) => (
               <RecipeCard key={recipe.title} {...recipe} index={i} />

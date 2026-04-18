@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { Clock, Flame, Heart, Star } from "lucide-react";
+import { Clock, Heart } from "lucide-react";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,8 +19,8 @@ export function RecipeCard({ title, image, time, difficulty, rating, category, s
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [8, -8]);
-  const rotateY = useTransform(x, [-100, 100], [-8, 8]);
+  const rotateX = useTransform(y, [-100, 100], [4, -4]);
+  const rotateY = useTransform(x, [-100, 100], [-4, 4]);
 
   const handleMouse = (e: React.MouseEvent) => {
     if (!ref.current) return;
@@ -31,78 +31,61 @@ export function RecipeCard({ title, image, time, difficulty, rating, category, s
 
   const resetMouse = () => { x.set(0); y.set(0); };
 
-  const difficultyColor = {
-    Easy: "text-deep-green bg-deep-green/10",
-    Medium: "text-spice-gold bg-spice-gold/10",
-    Hard: "text-primary bg-primary/10",
-  };
-
   return (
-    <motion.div
+    <motion.article
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
-      style={{ rotateX, rotateY, perspective: 800 }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      style={{ rotateX, rotateY, perspective: 1000 }}
       onMouseMove={handleMouse}
       onMouseLeave={resetMouse}
-      whileHover={{ y: -10, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-      className="group glass-card overflow-hidden cursor-pointer will-change-transform"
+      className="group cursor-pointer will-change-transform"
     >
       <Link to={`/recipe/${slug}`}>
-        <div className="relative h-56 overflow-hidden">
+        {/* Editorial photo plate */}
+        <div className="relative aspect-[4/5] overflow-hidden bg-muted mb-4">
           <motion.img
             src={image}
             alt={title}
             loading="lazy"
             className="w-full h-full object-cover"
-            whileHover={{ scale: 1.12 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileHover={{ scale: 1.06 }}
+            transition={{ duration: 1.0, ease: "easeOut" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-coffee/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 + index * 0.1 }}
-            className="absolute top-3 left-3 px-3 py-1.5 rounded-full text-xs font-semibold bg-cream/90 backdrop-blur-md text-foreground font-body shadow-sm"
-          >
-            {category}
-          </motion.span>
+          {/* Plate number — magazine credit */}
+          <span className="absolute top-3 left-3 px-2 py-1 text-[10px] uppercase tracking-widest bg-cream/95 text-foreground font-body">
+            № {String(index + 1).padStart(2, "0")}
+          </span>
 
-          <motion.button
+          <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setLiked(!liked); }}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.85 }}
-            className="absolute top-3 right-3 p-2.5 rounded-full bg-cream/90 backdrop-blur-md shadow-sm"
+            className="absolute top-3 right-3 p-2 bg-cream/95 backdrop-blur-sm hover:bg-cream transition-colors"
+            aria-label="Save recipe"
           >
-            <Heart className={`h-4 w-4 transition-all duration-300 ${liked ? "fill-primary text-primary scale-110" : "text-muted-foreground"}`} />
-          </motion.button>
+            <Heart className={`h-3.5 w-3.5 ${liked ? "fill-primary text-primary" : "text-foreground/60"}`} />
+          </button>
         </div>
 
-        <div className="p-5">
-          <h3 className="font-display text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+        {/* Caption — editorial style */}
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-body mb-2">
+            {category} · {difficulty}
+          </p>
+          <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground leading-tight group-hover:text-primary transition-colors duration-300 mb-2">
             {title}
           </h3>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1 text-sm text-muted-foreground font-body">
-                <Clock className="h-4 w-4" /> {time}
-              </span>
-              <span className={`flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full font-body ${difficultyColor[difficulty]}`}>
-                <Flame className="h-3 w-3" /> {difficulty}
-              </span>
-            </div>
-
-            <span className="flex items-center gap-1 text-sm font-medium text-spice-gold font-body">
-              <Star className="h-4 w-4 fill-spice-gold" /> {rating}
+          <div className="flex items-center gap-3 text-xs text-muted-foreground font-body">
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-3 w-3" /> {time}
             </span>
+            <span className="text-foreground/30">·</span>
+            <span>★ {rating}</span>
           </div>
         </div>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }
