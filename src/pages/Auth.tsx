@@ -102,9 +102,14 @@ export default function Auth() {
                   </div>
                   <h3 className="font-display text-xl font-bold text-foreground mb-2">{l.checkEmail}</h3>
                   <p className="text-muted-foreground font-body text-sm mb-6">{l.resetSent} <strong>{email}</strong></p>
-                  <Button variant="outline" className="rounded-full" onClick={() => { setMode("signin"); setSubmitted(false); }}>
-                    {l.backToSignIn}
-                  </Button>
+                  <div className="flex flex-col items-center gap-3">
+                    <Button variant="outline" className="rounded-full" onClick={() => { setMode("signin"); setSubmitted(false); }}>
+                      {l.backToSignIn}
+                    </Button>
+                    <a href="/reset-password" className="text-xs text-muted-foreground hover:text-primary font-body underline">
+                      Demo: open reset page →
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
