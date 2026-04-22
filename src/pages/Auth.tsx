@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff, Mail, Lock, User, ArrowLeft, Chrome } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, User, ArrowLeft } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -101,9 +102,14 @@ export default function Auth() {
                   </div>
                   <h3 className="font-display text-xl font-bold text-foreground mb-2">{l.checkEmail}</h3>
                   <p className="text-muted-foreground font-body text-sm mb-6">{l.resetSent} <strong>{email}</strong></p>
-                  <Button variant="outline" className="rounded-full" onClick={() => { setMode("signin"); setSubmitted(false); }}>
-                    {l.backToSignIn}
-                  </Button>
+                  <div className="flex flex-col items-center gap-3">
+                    <Button variant="outline" className="rounded-full" onClick={() => { setMode("signin"); setSubmitted(false); }}>
+                      {l.backToSignIn}
+                    </Button>
+                    <a href="/reset-password" className="text-xs text-muted-foreground hover:text-primary font-body underline">
+                      Demo: open reset page →
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -140,13 +146,21 @@ export default function Auth() {
                         <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-border" /></div>
                         <div className="relative flex justify-center"><span className="bg-background px-4 text-sm text-muted-foreground font-body">{l.orContinue}</span></div>
                       </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        <Button variant="outline" type="button" className="h-12 rounded-xl gap-2 font-body"><Chrome className="h-5 w-5" /> Google</Button>
-                        <Button variant="outline" type="button" className="h-12 rounded-xl gap-2 font-body">
-                          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.99 2.97 12.5 4.7 9.46C5.56 7.95 7.1 7 8.78 6.97C10.06 6.95 11.27 7.84 12.05 7.84C12.83 7.84 14.29 6.77 15.82 6.93C16.45 6.96 18.18 7.18 19.27 8.81C19.17 8.87 16.96 10.15 16.99 12.83C17.02 16.01 19.79 17.08 19.82 17.09C19.79 17.16 19.39 18.52 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.09 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" /></svg>
-                          Apple
-                        </Button>
-                      </div>
+                      <Button
+                        variant="outline"
+                        type="button"
+                        onClick={() => toast.info("Google sign-in is a UI simulation. Enable Lovable Cloud for real auth.")}
+                        className="w-full h-12 rounded-xl gap-2 font-body"
+                      >
+                        <svg className="h-5 w-5" viewBox="0 0 24 24">
+                          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Continue with Google
+                      </Button>
+
                     </>
                   )}
                   <p className="text-center text-sm text-muted-foreground font-body mt-6">

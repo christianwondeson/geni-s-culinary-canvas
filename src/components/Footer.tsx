@@ -53,32 +53,35 @@ export function Footer() {
   ];
 
   return (
-    <footer className="pt-20 pb-10 border-t border-border bg-muted/20 relative">
+    <footer className="pt-20 pb-10 border-t border-border bg-coffee text-cream relative paper-grain">
       {/* Back to top */}
       <motion.button
         onClick={scrollToTop}
         whileHover={{ scale: 1.1, y: -3 }}
         whileTap={{ scale: 0.9 }}
-        className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg shadow-primary/25"
+        className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-spice-gold text-coffee flex items-center justify-center shadow-lg shadow-spice-gold/25"
       >
         <ArrowUp className="h-5 w-5" />
       </motion.button>
 
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-8 relative">
+        <div className="ink-divider mb-12 opacity-40" />
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
           <ScrollReveal className="md:col-span-1">
-            <Link to="/" className="font-display text-2xl font-bold text-foreground inline-block">
-              Geni's <span className="text-primary">Recipe</span>
+            <span className="kicker text-spice-gold mb-3">Colophon</span>
+            <Link to="/" className="font-display text-3xl font-bold text-cream inline-block mt-3">
+              Geni's <em className="text-spice-gold not-italic italic font-medium">Recipe</em>
             </Link>
-            <p className="text-muted-foreground text-sm mt-4 leading-relaxed font-body">{l.tagline}</p>
+            <p className="text-cream/60 text-sm mt-4 leading-relaxed font-body italic">{l.tagline}</p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h4 className="font-display font-semibold text-foreground mb-4">{l.recipes}</h4>
+            <h4 className="font-display font-semibold text-cream mb-4 text-sm uppercase tracking-[0.18em]">{l.recipes}</h4>
             <ul className="space-y-3">
               {recipeLinksData.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">
+                  <Link to={link.href} className="text-sm text-cream/60 hover:text-spice-gold transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">
                     {lang === "en" ? link.en : link.am}
                   </Link>
                 </li>
@@ -87,37 +90,42 @@ export function Footer() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <h4 className="font-display font-semibold text-foreground mb-4">{l.explore}</h4>
+            <h4 className="font-display font-semibold text-cream mb-4 text-sm uppercase tracking-[0.18em]">{l.explore}</h4>
             <ul className="space-y-3">
               {exploreLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">{link.label}</Link>
+                  <Link to={link.href} className="text-sm text-cream/60 hover:text-spice-gold transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">{link.label}</Link>
                 </li>
               ))}
             </ul>
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <h4 className="font-display font-semibold text-foreground mb-4">{l.support}</h4>
+            <h4 className="font-display font-semibold text-cream mb-4 text-sm uppercase tracking-[0.18em]">{l.support}</h4>
             <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">{link.label}</Link>
+                  <Link to={link.href} className="text-sm text-cream/60 hover:text-spice-gold transition-colors font-body inline-block hover:translate-x-1 transition-transform duration-200">{link.label}</Link>
                 </li>
               ))}
+              <li>
+                <Link to="/admin/login" className="text-xs text-cream/40 hover:text-spice-gold transition-colors font-body italic">
+                  Editor sign-in →
+                </Link>
+              </li>
             </ul>
           </ScrollReveal>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/50">
-          <p className="text-sm text-muted-foreground font-body">{l.rights}</p>
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-cream/10">
+          <p className="text-sm text-cream/50 font-body">{l.rights}</p>
           <motion.p
-            className="text-sm text-muted-foreground flex items-center gap-1.5 mt-2 md:mt-0 font-body"
+            className="text-sm text-cream/50 flex items-center gap-1.5 mt-2 md:mt-0 font-body italic"
             whileHover={{ scale: 1.05 }}
           >
             {l.madeWith}
             <motion.span animate={{ scale: [1, 1.3, 1] }} transition={{ duration: 1, repeat: Infinity }}>
-              <Heart className="h-3.5 w-3.5 text-primary fill-primary" />
+              <Heart className="h-3.5 w-3.5 text-spice-gold fill-spice-gold" />
             </motion.span>
             {l.inEthiopia}
           </motion.p>

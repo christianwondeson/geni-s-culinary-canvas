@@ -66,11 +66,12 @@ export function TestimonialsSection() {
   return (
     <section className="py-28 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        <ScrollReveal className="text-center mb-16">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mt-3">
-            {l.title} <span className="text-secondary">{l.highlight}</span>
+        <ScrollReveal className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="kicker text-secondary justify-center">Chapter III · {l.badge}</span>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mt-4 leading-[1.05]">
+            {l.title} <em className="text-secondary not-italic font-medium italic">{l.highlight}</em>
           </h2>
+          <div className="ink-divider mx-auto mt-5" />
         </ScrollReveal>
 
         <div className="relative max-w-3xl mx-auto">

@@ -54,17 +54,13 @@ export function PricingSection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
 
       <div className="container mx-auto px-4 lg:px-8 relative">
-        <ScrollReveal className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-              <Sparkles className="h-5 w-5 text-spice-gold" />
-            </motion.div>
-            <span className="text-spice-gold font-semibold text-sm uppercase tracking-wider">{l.badge}</span>
-          </div>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-4">
-            {l.title} <span className="text-primary">{l.highlight}</span>
+        <ScrollReveal className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="kicker text-spice-gold justify-center">Subscription · {l.badge}</span>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mt-4 mb-5 leading-[1.05]">
+            {l.title} <em className="text-primary not-italic font-medium italic">{l.highlight}</em>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-md mx-auto">{l.desc}</p>
+          <div className="ink-divider mx-auto mb-5" />
+          <p className="text-muted-foreground text-lg font-body leading-relaxed">{l.desc}</p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
