@@ -46,12 +46,13 @@ export function HowItWorksSection() {
       }} />
 
       <div className="container mx-auto px-4 lg:px-8 relative">
-        <ScrollReveal className="text-center mb-20">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider font-body">{l.badge}</span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mt-3 mb-4">
-            {l.title} <span className="text-primary">{l.highlight}</span>
+        <ScrollReveal className="text-center mb-20 max-w-2xl mx-auto">
+          <span className="kicker text-primary justify-center">Chapter II · {l.badge}</span>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mt-4 mb-5 leading-[1.05]">
+            {l.title} <em className="text-primary not-italic font-medium italic">{l.highlight}</em>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-md mx-auto font-body">{l.desc}</p>
+          <div className="ink-divider mx-auto mb-5" />
+          <p className="text-muted-foreground text-lg font-body leading-relaxed">{l.desc}</p>
         </ScrollReveal>
 
         <div className="relative max-w-4xl mx-auto">
