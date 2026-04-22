@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff, Mail, Lock, User, ArrowLeft, Chrome } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, User, ArrowLeft } from "lucide-react";
+import { Link as RLink } from "react-router-dom";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
